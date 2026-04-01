@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Team — Sri Sai Inter College</title>
+  <link rel="icon" type="image/png" href="../Logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700;800&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="../db.js"></script>
+  <style>
+    :root {
+      --red: #c0392b;
+      --red-dark: #922b21;
+      --gold: #f39c12;
+      --gold-l: #f9ca24;
+      --blue: #1a3a6b;
+      --blue-l: #2454a4;
+      --green: #1a6b3a;
+      --admin: #c0392b;
+      --upb: #d35400;
+      --iit: #1a3a6b;
+      --bg: #f7f3ef;
+      --white: #fff;
+      --text: #2c2c2c;
+      --muted: #6b6b6b;
+      --shadow: 0 8px 40px rgba(0, 0, 0, .09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* TOPBAR & HEADER */
+    .top-bar {
+      background: #1a1a1a;
+      color: #bbb;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .tb {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .top-bar a {
+      color: #e8c97a;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    header {
+      background: #fff;
+      padding: 14px 0;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+
+    .hi {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo-a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    .logo-t h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1.1;
+    }
+
+    .logo-t p {
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all .3s;
+    }
+
+    .back-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #3a1a0e 40%, var(--red-dark) 100%);
+      padding: 72px 0 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M30 30m-20 0a20 20 0 1 0 40 0a20 20 0 1 0 -40 0M30 30m-10 0a10 10 0 1 0 20 0a10 10 0 1 0 -20 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5.5vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-l);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .85);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .hero-counts {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hc {
+      text-align: center;
+      color: #fff;
+    }
+
+    .hc-n {
+      font-family: 'Baloo 2', cursive;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--gold-l);
+      line-height: 1;
+    }
+
+    .hc-l {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: .8;
+      margin-top: 4px;
+      letter-spacing: .5px;
+    }
+
+    /* MEGA TABS */
+    .mega-tabs {
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .07);
+      position: sticky;
+      top: 82px;
+      z-index: 100;
+    }
+
+    .tabs-row {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tabs-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mega-tab {
+      flex: 1;
+      min-width: 180px;
+      padding: 18px 20px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      transition: all .3s;
+      border-bottom: 4px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      white-space: nowrap;
+    }
+
+    .mega-tab:hover {
+      color: var(--text);
+      background: #fafafa;
+    }
+
+    .mega-tab.active-admin {
+      color: var(--admin);
+      border-bottom-color: var(--admin);
+      background: #fff8f7;
+    }
+
+    .mega-tab.active-upb {
+      color: var(--upb);
+      border-bottom-color: var(--upb);
+      background: #fff9f5;
+    }
+
+    .mega-tab.active-iit {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      background: #f5f8ff;
+    }
+
+    .tab-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .ti-admin {
+      background: #fff0f0;
+      color: var(--admin);
+    }
+
+    .ti-upb {
+      background: #fff4ee;
+      color: var(--upb);
+    }
+
+    .ti-iit {
+      background: #eef2ff;
+      color: var(--blue);
+    }
+
+    .tab-count {
+      font-size: 11px;
+      background: #f0f0f0;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 4px;
+    }
+
+    /* TAB PANELS */
+    .tab-panel {
+      display: none;
+      padding: 56px 0;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* SECTION HEADER */
+    .panel-header {
+      margin-bottom: 40px;
+    }
+
+    .panel-header-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .ph-left .tag {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .tag-admin {
+      background: #fff0f0;
+      color: var(--admin);
+      border: 1.5px solid #ffd5d5;
+    }
+
+    .tag-upb {
+      background: #fff4ee;
+      color: var(--upb);
+      border: 1.5px solid #ffc9a0;
+    }
+
+    .tag-iit {
+      background: #eef2ff;
+      color: var(--blue);
+      border: 1.5px solid #c5d3f5;
+    }
+
+    .ph-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .ph-left p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .ph-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .cnt-badge {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .badge-admin {
+      background: #fff0f0;
+      color: var(--admin);
+      border: 1px solid #ffd5d5;
+    }
+
+    .badge-upb {
+      background: #fff4ee;
+      color: var(--upb);
+      border: 1px solid #ffc9a0;
+    }
+
+    .badge-iit {
+      background: #eef2ff;
+      color: var(--blue);
+      border: 1px solid #c5d3f5;
+    }
+
+    .add-btn {
+      padding: 11px 20px;
+      border-radius: 50px;
+      border: none;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all .3s;
+    }
+
+    .add-admin {
+      background: var(--admin);
+      color: #fff;
+    }
+
+    .add-admin:hover {
+      background: var(--red-dark);
+    }
+
+    .add-upb {
+      background: var(--upb);
+      color: #fff;
+    }
+
+    .add-upb:hover {
+      background: #b5400a;
+    }
+
+    .add-iit {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .add-iit:hover {
+      background: #0d2240;
+    }
+
+    /* MEMBER GRID */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    /* MEMBER CARD */
+    .member-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all .35s cubic-bezier(.4, 0, .2, 1);
+      position: relative;
+      text-align: center;
+      animation: fadeUp .5s both;
+    }
+
+    .member-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .14);
+    }
+
+    .card-top-stripe {
+      height: 5px;
+    }
+
+    .stripe-admin {
+      background: linear-gradient(to right, var(--gold), var(--admin));
+    }
+
+    .stripe-upb {
+      background: linear-gradient(to right, var(--gold-l), var(--upb));
+    }
+
+    .stripe-iit {
+      background: linear-gradient(to right, var(--blue-l), var(--blue));
+    }
+
+    .mc-body {
+      padding: 28px 18px 22px;
+    }
+
+    .member-photo-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 16px;
+    }
+
+    .member-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .border-admin {
+      border: 3px solid var(--admin);
+    }
+
+    .border-upb {
+      border: 3px solid var(--upb);
+    }
+
+    .border-iit {
+      border: 3px solid var(--blue);
+    }
+
+    .bg-admin {
+      background: linear-gradient(135deg, #fff0f0, #ffd5d5);
+    }
+
+    .bg-upb {
+      background: linear-gradient(135deg, #fff4ee, #ffc9a0);
+    }
+
+    .bg-iit {
+      background: linear-gradient(135deg, #eef2ff, #c5d3f5);
+    }
+
+    .icon-admin {
+      font-size: 38px;
+      color: var(--admin);
+    }
+
+    .icon-upb {
+      font-size: 38px;
+      color: var(--upb);
+    }
+
+    .icon-iit {
+      font-size: 38px;
+      color: var(--blue);
+    }
+
+
+    .cam-admin {
+      background: var(--admin);
+    }
+
+    .cam-upb {
+      background: var(--upb);
+    }
+
+    .cam-iit {
+      background: var(--blue);
+    }
+
+    .member-name {
+      font-weight: 800;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .member-role {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .role-admin {
+      color: var(--admin);
+    }
+
+    .role-upb {
+      color: var(--upb);
+    }
+
+    .role-iit {
+      color: var(--blue);
+    }
+
+    .member-dept {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .member-qual {
+      font-size: 12px;
+      color: #aaa;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .member-qual i {
+      font-size: 10px;
+      color: var(--gold);
+    }
+
+    .member-exp {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .exp-admin {
+      background: #fff0f0;
+      color: var(--admin);
+      border: 1px solid #ffd5d5;
+    }
+
+    .exp-upb {
+      background: #fff4ee;
+      color: var(--upb);
+      border: 1px solid #ffc9a0;
+    }
+
+    .exp-iit {
+      background: #eef2ff;
+      color: var(--blue);
+      border: 1px solid #c5d3f5;
+    }
+
+    .member-bio {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      padding: 9px 11px;
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .bio-admin {
+      background: #fff8f8;
+      border-left: 3px solid var(--admin);
+    }
+
+    .bio-upb {
+      background: #fff8f3;
+      border-left: 3px solid var(--upb);
+    }
+
+    .bio-iit {
+      background: #f5f8ff;
+      border-left: 3px solid var(--blue);
+    }
+
+    .cbtn {
+      padding: 7px 13px;
+      border-radius: 50px;
+      border: none;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all .2s;
+    }
+
+    .cbtn-admin {
+      background: var(--admin);
+      color: #fff;
+    }
+
+    .cbtn-admin:hover {
+      background: var(--red-dark);
+    }
+
+    .cbtn-upb {
+      background: var(--upb);
+      color: #fff;
+    }
+
+    .cbtn-upb:hover {
+      background: #b5400a;
+    }
+
+    .cbtn-iit {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .cbtn-iit:hover {
+      background: #0d2240;
+    }
+
+    .cbtn-ghost {
+      background: #f5f5f5;
+      color: var(--muted);
+    }
+
+    .cbtn-ghost:hover {
+      background: #ffe8e8;
+      color: var(--red);
+    }
+
+    /* ADD CARD */
+
+
+
+    /* MODAL */
+    .mo {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .65);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .mo.open {
+      display: flex;
+    }
+
+    .mbox {
+      background: #fff;
+      border-radius: 24px;
+      max-width: 560px;
+      width: 100%;
+      animation: scaleIn .35s cubic-bezier(.4, 0, .2, 1);
+      overflow: hidden;
+      max-height: 94vh;
+      overflow-y: auto;
+    }
+
+    .mhead {
+      padding: 22px 30px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mhead-admin {
+      background: linear-gradient(135deg, var(--admin), var(--red-dark));
+    }
+
+    .mhead-upb {
+      background: linear-gradient(135deg, var(--upb), #b5400a);
+    }
+
+    .mhead-iit {
+      background: linear-gradient(135deg, var(--blue), #0d2240);
+    }
+
+    .mhead h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .mx {
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, .2);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mx:hover {
+      background: rgba(255, 255, 255, .35);
+    }
+
+    .mbody {
+      padding: 28px 30px;
+    }
+
+    .fgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fg {
+      margin: 0;
+    }
+
+    .fg.full {
+      grid-column: span 2;
+    }
+
+    .fg label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 2px solid #eee;
+      background: #fafafa;
+      font-size: 14px;
+      font-family: 'Mulish', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: all .3s;
+    }
+
+    .fg textarea {
+      min-height: 75px;
+      resize: vertical;
+    }
+
+    .ph-up {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ph-c {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 3px dashed #ddd;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .ph-c img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .ph-c i {
+      font-size: 38px;
+      color: #ccc;
+    }
+
+    .ph-lbl {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: #f5f5f5;
+      border-radius: 50px;
+      transition: all .2s;
+    }
+
+    .ph-lbl:hover {
+      background: #ffe8e8;
+      color: var(--red);
+    }
+
+    .mfoot {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 20px;
+    }
+
+    .bcn {
+      padding: 11px 22px;
+      border-radius: 50px;
+      border: 2px solid #eee;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    .bcn:hover {
+      background: #f5f5f5;
+    }
+
+    .bsv {
+      padding: 11px 26px;
+      border-radius: 50px;
+      color: #fff;
+      border: none;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      transition: all .3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bsv:hover {
+      transform: translateY(-2px);
+    }
+
+    .bsv-admin {
+      background: var(--admin);
+    }
+
+    .bsv-upb {
+      background: var(--upb);
+    }
+
+    .bsv-iit {
+      background: var(--blue);
+    }
+
+    .conf {
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    .conf i {
+      font-size: 52px;
+      color: #e74c3c;
+      margin-bottom: 14px;
+    }
+
+    .conf h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .conf p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .cf {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    /* TOAST / BTT */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #222;
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 99999;
+      transition: transform .4s;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.ok {
+      background: #27ae60;
+    }
+
+    .toast.err {
+      background: #e74c3c;
+    }
+
+    .btt {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(192, 57, 43, .4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .3s;
+      z-index: 500;
+      text-decoration: none;
+    }
+
+    .btt.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btt:hover {
+      background: var(--red-dark);
+    }
+
+    footer {
+      background: #111;
+      color: #888;
+      padding: 26px 0;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+
+    footer span {
+      color: var(--red);
+    }
+
+    footer a {
+      color: var(--gold-l);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #bbb;
+      display: none;
+    }
+
+    .empty i {
+      font-size: 56px;
+      margin-bottom: 14px;
+    }
+
+    .empty p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    @media(max-width:1100px) {
+      .members-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:780px) {
+      .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fgrid {
+        grid-template-columns: 1fr;
+      }
+
+      .fg.full {
+        grid-column: span 1;
+      }
+    }
+
+    @media(max-width:480px) {
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div class="container tb">
+      <div><i class="fas fa-phone-alt"></i><a href="tel:+917860000000">+91 786-000-0000</a><i class="fas fa-envelope"
+          style="margin-left:12px"></i><a href="#"><span class="__cf_email__"
+            data-cfemail="5c35323a331c2f2e352f3d35353228392e3f333030393b39723532">[email&#160;protected]</span></a>
+      </div>
+      <div><a href="../index.html#admission">Apply Now</a><a href="../contact.html">Contact</a></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container hi">
+      <a href="../index.html" class="logo-a">
+        <div class="logo-circle">SS</div>
+        <div class="logo-t">
+          <h1>Sri Sai Inter College</h1>
+          <p>Committed to Excellence in Education</p>
+        </div>
+      </a>
+      <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero-tag">👥 Meet the Team</div>
+      <h1>Our Expert <span>Staff &amp; Faculty</span></h1>
+      <p>Dedicated educators and administrators committed to nurturing every student's potential and ensuring academic
+        excellence.</p>
+      <div class="hero-counts">
+        <div class="hc">
+          <div class="hc-n" id="hcAdmin">0</div>
+          <div class="hc-l">Admin Officers</div>
+        </div>
+        <div class="hc">
+          <div class="hc-n" id="hcUpb">0</div>
+          <div class="hc-l">UP Board Faculty</div>
+        </div>
+        <div class="hc">
+          <div class="hc-n" id="hcIit">0</div>
+          <div class="hc-l">IIT/NEET Experts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEGA TABS -->
+  <div class="mega-tabs">
+    <div class="container">
+      <div class="tabs-row">
+        <button class="mega-tab active-admin" id="tab-admin" onclick="switchTab('admin')">
+          <div class="tab-icon ti-admin"><i class="fas fa-user-shield"></i></div>
+          Administrative Officers
+          <span class="tab-count" id="cnt-admin">0</span>
+        </button>
+        <button class="mega-tab" id="tab-upb" onclick="switchTab('upb')">
+          <div class="tab-icon ti-upb"><i class="fas fa-chalkboard-teacher"></i></div>
+          UP Board Faculty
+          <span class="tab-count" id="cnt-upb">0</span>
+        </button>
+        <button class="mega-tab" id="tab-iit" onclick="switchTab('iit')">
+          <div class="tab-icon ti-iit"><i class="fas fa-atom"></i></div>
+          IIT-JEE / NEET Faculty
+          <span class="tab-count" id="cnt-iit">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="tab-panel active" id="panel-admin">
+    <div class="container">
+      <div class="panel-header">
+        <div class="panel-header-inner">
+          <div class="ph-left">
+            <div class="tag tag-admin"><i class="fas fa-shield-alt" style="margin-right:6px"></i>Administrative Officers
+            </div>
+            <h2 style="color:var(--admin);">Leadership &amp; <span style="color:var(--text);">Management</span></h2>
+            <p>The dedicated administrative team that keeps Sri Sai Inter College running smoothly every day.</p>
+          </div>
+          <div class="ph-right">
+            <span class="cnt-badge badge-admin" id="badge-admin">0 Officers</span>
+          </div>
+        </div>
+      </div>
+      <div class="members-grid" id="grid-admin"></div>
+      <div class="empty" id="empty-admin"><i class="fas fa-user-tie"></i>
+        <p>No officers listed yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- UP BOARD PANEL -->
+  <div class="tab-panel" id="panel-upb">
+    <div class="container">
+      <div class="panel-header">
+        <div class="panel-header-inner">
+          <div class="ph-left">
+            <div class="tag tag-upb"><i class="fas fa-book-open" style="margin-right:6px"></i>UP Board Faculty</div>
+            <h2 style="color:var(--upb);">Experienced <span style="color:var(--text);">Educators</span></h2>
+            <p>Passionate teachers bringing decades of UP Board expertise to every classroom.</p>
+          </div>
+          <div class="ph-right">
+            <span class="cnt-badge badge-upb" id="badge-upb">0 Faculty</span>
+          </div>
+        </div>
+      </div>
+      <div class="members-grid" id="grid-upb"></div>
+      <div class="empty" id="empty-upb"><i class="fas fa-chalkboard"></i>
+        <p>No faculty listed yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IIT PANEL -->
+  <div class="tab-panel" id="panel-iit">
+    <div class="container">
+      <div class="panel-header">
+        <div class="panel-header-inner">
+          <div class="ph-left">
+            <div class="tag tag-iit"><i class="fas fa-atom" style="margin-right:6px"></i>IIT-JEE / NEET Faculty</div>
+            <h2 style="color:var(--blue);">Premium <span style="color:var(--text);">Expert Team</span></h2>
+            <p>IIT alumni and subject specialists dedicated to cracking India's toughest entrance exams.</p>
+          </div>
+          <div class="ph-right">
+            <span class="cnt-badge badge-iit" id="badge-iit">0 Experts</span>
+          </div>
+        </div>
+      </div>
+      <div class="members-grid" id="grid-iit"></div>
+      <div class="empty" id="empty-iit"><i class="fas fa-graduation-cap"></i>
+        <p>No faculty listed yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>Sri Sai Inter College</span>. All Rights Reserved. &nbsp;|&nbsp;<a href="../index.html">Home</a><a
+          href="../up-toppers/toppers.html">Toppers</a><a href="../Entrance-topper/entrance.html">Entrance Results</a><a
+          href="../contact.html">Contact</a></p>
+    </div>
+  </footer>
+  <a href="#" class="btt" id="btt"><i class="fas fa-chevron-up"></i></a>
+  <div class="toast" id="toast"></div>
+
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // ===== DATA =====
+    let data = { admin: [], upb: [], iit: [] };
+
+    let curTab = 'admin', editId = null, delId = null, delType = null;
+
+    async function initData() {
+      try {
+        if (typeof isDbConfigured === 'function' && isDbConfigured() && typeof Team !== 'undefined') {
+          const allTeam = await Team.getAll('order=sort_order.asc,created_at.asc');
+          data = {
+            admin: allTeam.filter(x => x.type === 'admin'),
+            upb: allTeam.filter(x => x.type === 'upb'),
+            iit: allTeam.filter(x => x.type === 'iit')
+          };
+        } else {
+          data = {
+            admin: JSON.parse(localStorage.getItem('ssic_admin') || '[]'),
+            upb: JSON.parse(localStorage.getItem('ssic_upb') || '[]'),
+            iit: JSON.parse(localStorage.getItem('ssic_iit') || '[]')
+          };
+        }
+      } catch (e) {
+        console.error('Error loading team:', e);
+        data = {
+          admin: JSON.parse(localStorage.getItem('ssic_admin') || '[]'),
+          upb: JSON.parse(localStorage.getItem('ssic_upb') || '[]'),
+          iit: JSON.parse(localStorage.getItem('ssic_iit') || '[]')
+        };
+      }
+      renderAll();
+    }
+
+    function saveAll() {
+      try {
+        localStorage.setItem('ssic_admin', JSON.stringify(data.admin));
+        localStorage.setItem('ssic_upb', JSON.stringify(data.upb));
+        localStorage.setItem('ssic_iit', JSON.stringify(data.iit));
+      } catch (e) { }
+    }
+    async function syncDb(record, isEdit) {
+      if (!isDbConfigured()) return record;
+      try { return isEdit ? await Team.update(record.id, record) : await Team.add(record); }
+      catch (e) { console.warn('DB sync failed:', e.message); return record; }
+    }
+    async function deleteDb(id) { if (isDbConfigured()) { try { await Team.delete(id); } catch (e) { } } }
+
+    const cfg = {
+      admin: { icon: 'fas fa-user-shield', iconCls: 'icon-admin', photoBg: 'bg-admin', border: 'border-admin', stripe: 'stripe-admin', role: 'role-admin', exp: 'exp-admin', bio: 'bio-admin', cam: 'cam-admin', btn: 'cbtn-admin', head: 'mhead-admin', save: 'bsv-admin', tag: 'Leadership' },
+      upb: { icon: 'fas fa-chalkboard-teacher', iconCls: 'icon-upb', photoBg: 'bg-upb', border: 'border-upb', stripe: 'stripe-upb', role: 'role-upb', exp: 'exp-upb', bio: 'bio-upb', cam: 'cam-upb', btn: 'cbtn-upb', head: 'mhead-upb', save: 'bsv-upb', tag: 'Teaching' },
+      iit: { icon: 'fas fa-atom', iconCls: 'icon-iit', photoBg: 'bg-iit', border: 'border-iit', stripe: 'stripe-iit', role: 'role-iit', exp: 'exp-iit', bio: 'bio-iit', cam: 'cam-iit', btn: 'cbtn-iit', head: 'mhead-iit', save: 'bsv-iit', tag: 'Expert' },
+    };
+
+    function switchTab(tab) {
+      curTab = tab;
+      ['admin', 'upb', 'iit'].forEach(t => {
+        document.getElementById('panel-' + t).classList.remove('active');
+        const el = document.getElementById('tab-' + t);
+        el.className = 'mega-tab';
+      });
+      document.getElementById('panel-' + tab).classList.add('active');
+      document.getElementById('tab-' + tab).className = 'mega-tab active-' + tab;
+      renderAll();
+      window.scrollTo({ top: document.querySelector('.mega-tabs').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function renderAll() {
+      ['admin', 'upb', 'iit'].forEach(t => renderType(t));
+      updateHeroCounts();
+    }
+
+    function renderType(t) {
+      const grid = document.getElementById('grid-' + t);
+      const emp = document.getElementById('empty-' + t);
+      const list = data[t];
+      const cnt = list.length;
+      document.getElementById('cnt-' + t).textContent = cnt;
+      document.getElementById('badge-' + t).textContent = cnt + (t === 'admin' ? ' Officers' : t === 'upb' ? ' Faculty' : ' Experts');
+      grid.innerHTML = '';
+      if (!cnt) { emp.style.display = 'block'; return; }
+      emp.style.display = 'none';
+      list.forEach((m, i) => grid.appendChild(mkCard(m, i, t)));
+    }
+
+    function updateHeroCounts() {
+      document.getElementById('hcAdmin').textContent = data.admin.length + '+';
+      document.getElementById('hcUpb').textContent = data.upb.length + '+';
+      document.getElementById('hcIit').textContent = data.iit.length + '+';
+    }
+
+    function mkCard(m, i, t) {
+      const c = cfg[t]; const d = document.createElement('div'); d.className = 'member-card'; d.style.animationDelay = (i * .07) + 's';
+      const photo = m.photo ? `<img src="${m.photo}" alt="${m.name}">` : `<i class="${c.icon} ${c.iconCls}"></i>`;
+      const bio = m.bio ? `<div class="member-bio ${c.bio}">"${m.bio}"</div>` : '';
+      const exp = m.exp ? `<span class="member-exp ${c.exp}">${m.exp}</span>` : '';
+      const qual = m.qual ? `<div class="member-qual"><i class="fas fa-graduation-cap"></i>${m.qual}</div>` : '';
+      d.innerHTML = `<div class="card-top-stripe ${c.stripe}"></div>
+    <div class="mc-body">
+      <div class="member-photo-wrap">
+        <div class="member-photo ${c.photoBg} ${c.border}">${photo}</div>
+      </div>
+      <div class="member-name">${m.name}</div>
+      <div class="member-role ${c.role}">${m.role}</div>
+      ${m.dept ? `<div class="member-dept">${m.dept}</div>` : ''}
+      ${qual}${exp}${bio}
+    </div>`;
+      return d;
+    }
+
+    function qPhoto(id, t) { const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.onchange = e => { const r = new FileReader(); r.onload = ev => { const m = data[t].find(x => x.id === id); if (m) { m.photo = ev.target.result; saveAll(); renderAll(); toast2('Photo updated!', 'ok'); } }; r.readAsDataURL(e.target.files[0]); }; inp.click(); }
+    function saveMember() {
+      const t = document.getElementById('ftype').value;
+      const name = document.getElementById('fn').value.trim(); const role = document.getElementById('frole').value.trim();
+      if (!name || !role) { toast2('Name and Role required.', 'err'); return; }
+      const d2 = { name, role, dept: document.getElementById('fdept').value.trim(), qual: document.getElementById('fqual').value.trim(), exp: document.getElementById('fexp').value.trim(), bio: document.getElementById('fbio').value.trim(), photo: document.getElementById('phData').value };
+      if (editId) { const i = data[t].findIndex(x => x.id === editId); if (i > -1) data[t][i] = { ...data[t][i], ...d2 }; toast2('Updated!', 'ok'); }
+      else { d2.id = Date.now(); data[t].push(d2); toast2('Added!', 'ok'); }
+      syncDb({ ...d2, type: t }, !!editId).then(saved => {
+        if (saved && saved.id) { const i = data[t].findIndex(x => x.id == (editId || 0)); if (i > -1) data[t][i] = { ...data[t][i], ...saved }; saveAll(); renderAll(); }
+      });
+      saveAll(); closeMo(); renderAll();
+    }
+    function toast2(msg, type = '') { const t = document.getElementById('toast'); t.textContent = (type === 'ok' ? '✅ ' : type === 'err' ? '❌ ' : '') + msg; t.className = 'toast show ' + type; setTimeout(() => t.classList.remove('show'), 3000); }
+    window.addEventListener('scroll', () => { document.getElementById('btt').classList.toggle('show', window.scrollY > 300); });
+    // Check URL hash for direct tab links
+    const hash = window.location.hash;
+    if (hash === '#upb') switchTab('upb');
+    else if (hash === '#iit') switchTab('iit');
+    else initData();</script>
+</body>
+
+</html>

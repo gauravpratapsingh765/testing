@@ -1,0 +1,1226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://cdn-cgi-scripts.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co https://api.emailjs.com;">
+  <title>Sri Sai Inter College - Committed to Excellence in Education</title>
+  <link rel="icon" type="image/png" href="img/Logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "5E8mNJidb7tfjSPS5",
+      });
+    })();
+  </script>
+
+  <script src="db.js"></script>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:09415692615">09415692615</a>
+        <i class="fas fa-envelope"></i>
+        <a href="/cdn-cgi/l/email-protection#e390908a80cd8d9087a3848e828a8fcd808c8e"><span class="__cf_email__"
+            data-cfemail="9be8e8f2f8b5f5e8ffdbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a>
+      </div>
+      <div>
+        <a href="#admission"><i class="fas fa-user-plus"></i> Apply Now</a>
+        <a href="#notices"><i class="fas fa-bell"></i> Notices</a>
+        <a href="contact.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="top">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img class="logo-img" src="img/Logo.png">
+        <div class="logo-text">
+          <h1>Sri Sai Inter College</h1>
+          <p>Committed to Excellence in Education</p>
+          <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+
+          <!-- <li class="dropdown">
+            <a href="#branches">Branches <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#branch-upboard"><i class="fas fa-book"></i> UP Board (6th-12th)</a></li>
+              <li><a href="#branch-iit"><i class="fas fa-atom"></i> IIT-JEE / NEET Wing</a></li>
+            </ul>
+          </li> -->
+
+          <!-- <li class="dropdown">
+            <a href="#faculty">Faculty <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#administration"><i class="fas fa-chalkboard-teacher"></i> Administration</a></li>
+              <li><a href="#faculty-upboard-btn"><i class="fas fa-chalkboard-teacher"></i> UP Board Faculty</a></li>
+              <li><a href="#faculty-iit"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a></li>
+            </ul>
+          </li> -->
+
+          <li class="dropdown">
+            <a href="Faculty/team.html" target="_blank">Faculty <i class="fas fa-chevron-down"
+                style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="Faculty/team.html" target="_blank"><i class="fas fa-user-shield"></i> Administration</a></li>
+              <li><a href="Faculty/team.html" target="_blank"><i class="fas fa-chalkboard-teacher"></i> UP Board
+                  Faculty</a></li>
+              <li><a href="Faculty/team.html" target="_blank"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- <li class="dropdown">
+  <a href="#faculty" class="dropbtn">Faculty <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+  <ul class="dropdown-menu">
+    <li><a href="#faculty" onclick="switchTab('tab-admin', document.getElementById('faculty-admin-btn'))"><i class="fas fa-user-shield"></i> Administration</a></li>
+    <li><a href="#faculty" onclick="switchTab('tab-upboard', document.getElementById('faculty-upboard-btn'))"><i class="fas fa-chalkboard-teacher"></i> UP Board Faculty</a></li>
+    <li><a href="#faculty" onclick="switchTab('tab-iit', document.getElementById('faculty-iit-btn'))"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a></li>
+  </ul>
+</li> -->
+
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" style="cursor: default;">Toppers <i class="fas fa-chevron-down"
+                style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="up-toppers/toppers.html" target="_blank"><i class="fas fa-trophy"></i> UP Board Toppers</a>
+              </li>
+              <li><a href="Entrance-topper/entrance.html" target="_blank"><i class="fas fa-atom"></i> IIT-JEE / NEET
+                  Toppers</a></li>
+            </ul>
+          </li>
+          <li><a href="Alumini/alumni.html" target="_blank">Notable Alumni</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-slide active" id="slide-0"
+      style="display: flex; align-items: center; justify-content: center; text-align: center;">
+      <div class="hero-overlay"
+        style="position:absolute; inset:0; background:linear-gradient(120deg,rgba(146,43,33,0.85) 0%,rgba(26,58,107,0.7) 100%); z-index:1;">
+      </div>
+
+      <div style="position:absolute; inset:0; background:url('img/main3.jpeg') center/cover no-repeat; z-index:0;">
+      </div>
+
+      <div class="hero-content" style="position:relative; z-index:2; width: 100%; max-width: 800px; padding: 0 20px;">
+        <!-- <div class="hero-badge">🏆 Excellence in Education Since Establishment</div> -->
+        <h1 class="hero-title">Sri Sai Inter College</h1>
+        <p class="hero-sub">Nurturing young minds with quality education, strong values, and the foundation to conquer
+          any challenge — from UP Board to IIT-JEE & NEET.</p>
+        <div class="hero-btns">
+          <a href="#admission" class="btn btn-primary"><i class="fas fa-user-plus"></i> Apply for Admission</a>
+          <a href="#branches" class="btn btn-outline"><i class="fas fa-building"></i> Our Branches</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" id="slide-1"
+      style="display: flex; align-items: center; justify-content: center; text-align: center;">
+      <div class="hero-overlay"
+        style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(26,58,107,0.8) 0%, rgba(13,34,64,0.6) 100%); z-index:1;">
+      </div>
+
+      <div
+        style="position:absolute; inset:0; background:url('img/academic\ block.jpeg') center/cover no-repeat; z-index:0;">
+      </div>
+
+      <div class="hero-content" style="position:relative; z-index:2; width: 100%; max-width: 800px; padding: 0 20px;">
+        <!-- <div class="hero-badge">⚛️ Premium Coaching Wing</div> -->
+        <h1 class="hero-title">IIT-JEE & NEET<br>Preparation</h1>
+        <p class="hero-sub">Premium coaching for India's most competitive exams. Expert faculty, structured curriculum,
+          and a proven track record of selections.</p>
+        <div class="hero-btns">
+          <a href="#branch-iit" class="btn btn-primary"><i class="fas fa-atom"></i> Explore IIT Wing</a>
+          <a href="Entrance-topper/entrance.html" target="_blank" class="btn btn-outline"><i class="fas fa-award"></i>
+            View Selections</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" id="slide-2"
+      style="display: flex; align-items: center; justify-content: center; text-align: center;">
+      <div class="hero-overlay"
+        style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(125,28,14,0.8) 0%, rgba(192,57,43,0.6) 60%); z-index:1;">
+      </div>
+
+      <div
+        style="position:absolute; inset:0; background:url('img/Main\ Campus.jpeg') center/cover no-repeat; z-index:0;">
+      </div>
+
+      <div class="hero-content" style="position:relative; z-index:2; width: 100%; max-width: 800px; padding: 0 20px;">
+        <!-- <div class="hero-badge">📚 UP Board Excellence</div> -->
+        <h1 class="hero-title">Quality Education<br>From Class 6 to 12</h1>
+        <p class="hero-sub">UP Board affiliated curriculum with experienced teachers, modern classrooms, and a focus on
+          building strong academic foundations.</p>
+        <div class="hero-btns">
+          <a href="#branch-upboard" class="btn btn-primary"><i class="fas fa-book"></i> Know More</a>
+          <a href="up-toppers/toppers.html" target="_blank" class="btn btn-outline"><i class="fas fa-trophy"></i> Board
+            Toppers</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <span class="active" onclick="goSlide(0)"></span>
+      <span onclick="goSlide(1)"></span>
+      <span onclick="goSlide(2)"></span>
+    </div>
+
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="container">
+      <div class="ticker-inner">
+        <div class="ticker-label">📢 Latest News</div>
+        <div class="ticker-track">
+          <div class="ticker-scroll" id="ticker">
+            <span>Admission Open 2026-27 for All Classes</span>
+            <span>Admission Open 2026-27 for All Classes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-num" data-target="6000">0</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+        <div class="stat-item reveal" style="transition-delay:0.1s">
+          <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="stat-num" data-target="200">0</div>
+          <div class="stat-label">Expert Faculty</div>
+        </div>
+        <div class="stat-item reveal" style="transition-delay:0.2s">
+          <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-label">Board Toppers</div>
+        </div>
+        <div class="stat-item reveal" style="transition-delay:0.3s">
+          <div class="stat-icon"><i class="fas fa-medal"></i></div>
+          <div class="stat-num" data-target="95">0</div>
+          <div class="stat-label">% Pass Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title">A Legacy of <span>Educational Excellence</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Two dedicated branches, one unified mission — to provide quality education and shape
+          the future of every student.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left">
+          <img src="img/academic block.jpeg" alt="Sri Sai Inter College Building"
+            style="width:100%; border-radius:20px; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div class="about-deco"></div>
+          <div class="about-deco2"></div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <div class="section-tag" style="margin-bottom:12px">Our Story</div>
+          <h3>Building Bright Futures<br>for Tomorrow's Leaders</h3>
+          <p>Sri Sai Inter College stands as a beacon of educational excellence, offering two distinct yet complementary
+            branches to cater to every student's academic journey and aspirations.</p>
+          <p>With a team of dedicated educators, state-of-the-art infrastructure, and a commitment to holistic
+            development, we have consistently produced outstanding results in both Board exams and competitive entrance
+            tests.</p>
+
+          <div class="about-features">
+            <div class="about-feat"><i class="fas fa-check-circle"></i> UP Board Affiliated (6th–12th)</div>
+            <div class="about-feat"><i class="fas fa-check-circle"></i> IIT-JEE & NEET Coaching</div>
+            <div class="about-feat"><i class="fas fa-check-circle"></i> Primary to Secondary Classes</div>
+            <div class="about-feat"><i class="fas fa-check-circle"></i> Experienced & Expert Faculty</div>
+            <div class="about-feat"><i class="fas fa-check-circle"></i> Smart Classrooms & Labs</div>
+            <div class="about-feat"><i class="fas fa-check-circle"></i> Regular PTMs & Counselling</div>
+          </div>
+
+          <a href="#branches" class="btn btn-red" style="margin-top:8px">
+            <i class="fas fa-arrow-right"></i> Explore Our Branches
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BRANCHES -->
+  <section class="branches" id="branches">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Our Campuses</div>
+        <h2 class="section-title">Two Branches, <span>One Mission</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="branch-cards">
+
+        <!-- UP Board Branch -->
+        <div class="branch-card reveal-left" id="branch-upboard">
+          <div class="branch-header">
+            <div class="branch-deco"></div>
+            <div class="branch-deco2"></div>
+            <span class="branch-icon">📚</span>
+            <h3>Sri Sai Inter College<br><small style="font-size:16px;opacity:0.85">UP Board Wing</small></h3>
+            <p>Quality education from Class 6 to 12 under UP Board affiliation, with a strong foundation in academics
+              and character building.</p>
+          </div>
+          <div class="branch-body">
+            <div style="margin-bottom:16px">
+              <span class="branch-badge badge-red">Classes 6–8</span>
+              <span class="branch-badge badge-red">Classes 9–10</span>
+              <span class="branch-badge badge-red">Classes 11–12</span>
+              <span class="branch-badge badge-gold">Science</span>
+            </div>
+            <ul class="branch-features">
+              <li><i class="fas fa-star"></i><span>Experienced UP Board teachers with proven track record of excellent
+                  results.</span></li>
+              <li><i class="fas fa-star"></i><span>Comprehensive curriculum covering all UP Board subjects with practice
+                  papers.</span></li>
+              <li><i class="fas fa-star"></i><span>Regular assessments, mock exams, and parent-teacher meetings.</span>
+              </li>
+              <li><i class="fas fa-star"></i><span>Well-equipped science labs, library, and computer facilities.</span>
+              </li>
+              <li><i class="fas fa-star"></i><span>Co-curricular activities: sports, debates, cultural events and
+                  more.</span></li>
+            </ul>
+            <a href="contact.html" class="btn btn-red" style="font-size:14px;padding:12px 24px"><i
+                class="fas fa-info-circle"></i> Enquire Now</a>
+          </div>
+        </div>
+
+
+        <!-- IIT Branch -->
+        <div class="branch-card reveal-right" id="branch-iit">
+          <div class="branch-header">
+            <div class="branch-deco"></div>
+            <div class="branch-deco2"></div>
+            <span class="branch-icon">⚛️</span>
+            <h3>Sri Sai Inter College, <br> (Foundation Classes)<br><small style="font-size:16px;opacity:0.85">IIT-JEE /
+                NEET Wing</small></h3>
+            <p>Premium coaching institute for India's most competitive entrance exams, with classes from Primary to
+              Secondary level also.</p>
+          </div>
+          <div class="branch-body">
+            <div style="margin-bottom:16px">
+              <span class="branch-badge badge-blue">Primary Classes</span>
+              <span class="branch-badge badge-blue">Junior Classes</span>
+              <span class="branch-badge badge-blue">Secondary Classes</span>
+              <span class="branch-badge badge-gold">IIT-JEE</span>
+              <span class="branch-badge badge-gold">NEET</span>
+            </div>
+            <ul class="branch-features">
+              <li><i class="fas fa-atom"></i><span>Expert faculty from IITs and top medical colleges for JEE &
+                  NEET.</span></li>
+              <li><i class="fas fa-atom"></i><span>Structured 2-year and crash course programs for JEE Main, Advanced &
+                  NEET.</span></li>
+              <li><i class="fas fa-atom"></i><span>Daily practice problems, weekly tests, and All-India mock test
+                  series.</span></li>
+              <li><i class="fas fa-atom"></i><span>Doubt-clearing sessions and one-on-one mentoring for every
+                  student.</span></li>
+              <li><i class="fas fa-atom"></i><span>Digital study material, video lectures, and online test platform
+                  access.</span></li>
+            </ul>
+            <a href="contact.html" class="btn"
+              style="background:var(--blue-accent);color:#fff;font-size:14px;padding:12px 24px"><i
+                class="fas fa-info-circle"></i> Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LEADERSHIP -->
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Our Visionaries</div>
+        <h2 class="section-title">Founders & <span>Directors</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">The visionary leaders whose dedication and passion have built Sri Sai Inter College
+          into the institution it is today.</p>
+      </div>
+      <div class="leaders-grid">
+        <div class="leader-card reveal-left">
+          <img class="leader-img" src="img/Surendra Sir.jpeg" alt="Mr. Surendra Verma">
+          <div class="leader-info">
+            <span class="leader-title">Founder & Director</span>
+            <h3>Mr. Surendra Verma</h3>
+            <p>A visionary educator with decades of experience in transforming young lives through quality education and
+              unwavering commitment to excellence.</p>
+            <div class="leader-quote">"Education is not just about academics — it's about building character,
+              confidence, and the courage to dream big."</div>
+          </div>
+        </div>
+        <div class="leader-card reveal-right">
+          <img class="leader-img" src="img/Navneet Sir.jpeg" alt="Mr. Navneet Tiwari">
+          <div class="leader-info">
+            <span class="leader-title">Founder & Director</span>
+            <h3>Mr. Navneet Tiwari</h3>
+            <p>An inspiring leader dedicated to making premium quality education accessible to all, with a special focus
+              on competitive exam preparation and holistic development.</p>
+            <div class="leader-quote">"Every student has the potential to excel. Our role is to ignite that potential
+              and guide them toward their dreams."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- GALLERY -->
+
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Campus Life</div>
+        <h2 class="section-title">Our <span>Campus Gallery</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Take a look at our vibrant campus, modern facilities, and memorable moments.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item-container">
+          <div class="gallery-item">
+            <img src="img/Main Campus.jpeg" alt="Main Campus" class="gallery-img-static">
+            <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="gallery-caption">Main Campus</div>
+        </div>
+
+        <div class="gallery-item-container">
+          <div class="gallery-item">
+            <img src="path-to-lab.jpg" alt="Facilities" class="gallery-img-static">
+            <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="gallery-caption">Facilities (Lab/Classroom)</div>
+        </div>
+
+        <div class="gallery-item-container">
+          <div class="gallery-item">
+            <img src="img/Republic Day.png" alt="Events" class="gallery-img-static">
+            <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="gallery-caption">Events & Awards</div>
+        </div>
+
+        <div class="gallery-item-container">
+          <div class="gallery-item">
+            <img src="path-to-sports.jpg" alt="Sports" class="gallery-img-static">
+            <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="gallery-caption">Sports Day</div>
+        </div>
+
+        <div class="gallery-item-container">
+          <div class="gallery-item">
+            <img src="img/Republic Day.png" alt="Cultural" class="gallery-img-static">
+            <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="gallery-caption">Cultural Events</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TOPPERS -->
+
+  <!-- <section class="toppers" id="toppers">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-tag" style="background:#fff8f0; color:#d35400; border-color:#f5e1c5">Success Stories</div>
+        <h2 class="section-title">Our <span>Notable Alumni</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Our former students leading successful careers globally.</p>
+      </div>
+
+      <div class="toppers-grid">
+        <div class="topper-card reveal" style="--before-bg:#d35400">
+          <div class="topper-photo" onclick="uploadTopperPhoto(this)" style="border-color:#d35400"><i
+              class="fas fa-user-tie"></i></div>
+          <div class="topper-name">Alumni Name</div>
+          <div class="topper-score" style="color:#d35400">Software Engineer</div>
+          <div class="topper-class">Google, USA</div>
+          <div class="topper-year">Batch 2018</div>
+        </div>
+        <div class="topper-card reveal" style="--before-bg:#d35400">
+          <div class="topper-photo"><i class="fas fa-user-tie"></i></div>
+          <div class="topper-name">Alumni 2</div>
+          <div class="topper-score">IAS Officer</div>
+          <div class="topper-class">Govt. of India</div>
+          <div class="topper-year">Batch 2016</div>
+        </div>
+        <div class="topper-card reveal" style="--before-bg:#d35400">
+          <div class="topper-photo"><i class="fas fa-user-tie"></i></div>
+          <div class="topper-name">Alumni 3</div>
+          <div class="topper-score">Doctor</div>
+          <div class="topper-class">AIIMS</div>
+          <div class="topper-year">Batch 2017</div>
+        </div>
+        <div class="topper-card reveal" style="--before-bg:#d35400">
+          <div class="topper-photo"><i class="fas fa-user-tie"></i></div>
+          <div class="topper-name">Alumni 4</div>
+          <div class="topper-score">Entrepreneur</div>
+          <div class="topper-class">Startup CEO</div>
+          <div class="topper-year">Batch 2019</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a href="Alumini/alumni.html" target="_blank" class="btn btn-outline"
+          style="border-color:#d35400; color:#d35400;">View All
+          Alumni <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <hr style="margin: 60px 0; border: 0; border-top: 1px solid #eee;">
+
+      <div class="section-header reveal" id="hall-of-fame">
+        <div class="section-tag">Hall of Fame</div>
+        <h2 class="section-title">Our <span>Star Toppers</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="toppers-grid">
+        <div class="topper-card reveal">
+          <div class="topper-rank">1</div>
+          <div class="topper-photo"><i class="fas fa-user"></i></div>
+          <div class="topper-name">Gaurav Singh</div>
+          <div class="topper-score">97.6%</div>
+          <div class="topper-class">Class 12 — Science</div>
+          <div class="topper-year">2024-25</div>
+        </div>
+        <div class="topper-card reveal">
+          <div class="topper-rank">2</div>
+          <div class="topper-photo"><img src="img/Surendra Sir.jpeg" alt="Topper"
+              style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
+          <div class="topper-name">Rahul Kumar</div>
+          <div class="topper-score">96.2%</div>
+          <div class="topper-class">Class 12 — Science</div>
+          <div class="topper-year">2024-25</div>
+        </div>
+        <div class="topper-card reveal">
+          <div class="topper-rank">3</div>
+          <div class="topper-photo"><i class="fas fa-user"></i></div>
+          <div class="topper-name">Abhimanyu Verma</div>
+          <div class="topper-score">95.8%</div>
+          <div class="topper-class">Class 10 — UP Board</div>
+          <div class="topper-year">2024-25</div>
+        </div>
+        <div class="topper-card reveal">
+          <div class="topper-rank">4</div>
+          <div class="topper-photo"><i class="fas fa-user"></i></div>
+          <div class="topper-name">Student Name</div>
+          <div class="topper-score">94.2%</div>
+          <div class="topper-class">Class 10 — UP Board</div>
+          <div class="topper-year">2024-25</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a href="up-toppers/toppers.html" target="_blank" class="btn btn-outline"
+          style="border-color:#d35400; color:#d35400;"> View Board
+          Merit List <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div style="margin-top:80px">
+        <div class="section-header reveal">
+          <div class="section-tag" style="background:#f0f4ff; color:var(--blue-accent); border-color:#c5d3f5">Entrance
+            Exam Wings</div>
+          <h2 class="section-title">Qualified <span>Engineers & Doctors</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="toppers-grid">
+
+          <div class="topper-card reveal" style="--before-bg:var(--blue-accent)">
+            <div class="topper-rank" style="background:var(--blue-accent);color:#fff">1</div>
+            <div class="topper-photo" style="border-color:var(--blue-accent)"><i class="fas fa-user-graduate"></i></div>
+            <div class="topper-name">Nitin</div>
+            <div class="topper-score" style="color:var(--blue-accent)">JEE Advanced</div>
+            <div class="topper-class">IIT Kanpur</div>
+            <div class="topper-year">Batch 2024</div>
+          </div>
+          <div class="topper-card reveal" style="--before-bg:var(--blue-accent)">
+            <div class="topper-rank" style="background:var(--blue-accent);color:#fff">2</div>
+            <div class="topper-photo" style="border-color:var(--blue-accent)"><i class="fas fa-user-graduate"></i></div>
+            <div class="topper-name">Sanskar</div>
+            <div class="topper-score" style="color:var(--blue-accent)">NEET — 680</div>
+            <div class="topper-class">MBBS</div>
+            <div class="topper-year">Batch 2024</div>
+          </div>
+          <div class="topper-card reveal" style="--before-bg:var(--blue-accent)">
+            <div class="topper-rank" style="background:var(--blue-accent);color:#fff">3</div>
+            <div class="topper-photo" style="border-color:var(--blue-accent)"><i class="fas fa-user-graduate"></i></div>
+            <div class="topper-name">Avaneesh</div>
+            <div class="topper-score" style="color:var(--blue-accent)">JEE Main 99%ile</div>
+            <div class="topper-class">NIT Allahabad</div>
+            <div class="topper-year">Batch 2024</div>
+          </div>
+          <div class="topper-card reveal" style="--before-bg:var(--blue-accent)">
+            <div class="topper-rank" style="background:var(--blue-accent);color:#fff">4</div>
+            <div class="topper-photo" style="border-color:var(--blue-accent)"><i class="fas fa-user-graduate"></i></div>
+            <div class="topper-name">Kajal</div>
+            <div class="topper-score" style="color:var(--blue-accent)">NEET Qualified</div>
+            <div class="topper-class">Medical College</div>
+            <div class="topper-year">Batch 2024</div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+          <a href="Entrance-topper/entrance.html" target="_blank" class="btn btn-outline"
+            style="border-color:var(--blue-accent); color:var(--blue-accent);">View All Selections <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+
+  <!-- FACULTY -->
+
+  <!-- <section class="faculty" id="faculty">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Meet the Team</div>
+        <h2 class="section-title">Our Expert <span>Staff & Faculty</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Dedicated educators and administrators committed to excellence.</p>
+      </div>
+
+      <div class="branch-tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-admin', this)" id="faculty-admin-btn">Administrative
+          Officers</button>
+        <button class="tab-btn" onclick="switchTab('tab-upboard', this)" id="faculty-upboard-btn">UP Board
+          Faculty</button>
+        <button class="tab-btn" onclick="switchTab('tab-iit', this)" id="faculty-iit-btn">IIT-JEE / NEET
+          Faculty</button>
+      </div>
+
+      <div class="tab-content active" id="tab-admin">
+        <div class="faculty-grid">
+          <div class="faculty-card reveal" style="border-top:3px solid #d35400">
+            <div class="faculty-photo" style="border-color:#d35400"><i class="fas fa-user-shield"
+                style="color:#d35400"></i></div>
+            <div class="faculty-name">Admin Name</div>
+            <div class="faculty-subject" style="color:#d35400">Principal</div>
+            <div class="faculty-exp">Leadership</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid #d35400; transition-delay:0.1s">
+            <div class="faculty-photo"><i class="fas fa-user-shield"></i></div>
+            <div class="faculty-name">Admin Name</div>
+            <div class="faculty-subject">Manager</div>
+            <div class="faculty-exp">Operations</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid #d35400; transition-delay:0.2s">
+            <div class="faculty-photo"><i class="fas fa-user-shield"></i></div>
+            <div class="faculty-name">Admin Name</div>
+            <div class="faculty-subject">Registrar</div>
+            <div class="faculty-exp">Academics</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid #d35400; transition-delay:0.3s">
+            <div class="faculty-photo"><i class="fas fa-user-shield"></i></div>
+            <div class="faculty-name">Admin Name</div>
+            <div class="faculty-subject">Accountant</div>
+            <div class="faculty-exp">Finance</div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+          <a href="Faculty/team.html" target="_blank" class="btn btn-outline"
+            style="border-color:#d35400; color:#d35400;">View Full
+            Office <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-upboard">
+        <div class="faculty-grid">
+          <div class="faculty-card reveal">
+            <div class="faculty-photo"><img src="img/GauravsProfilePictur.jpeg" alt="Gaurav"></div>
+            <div class="faculty-name">Gaurav</div>
+            <div class="faculty-subject">Mathematics</div>
+            <div class="faculty-exp">BS IIT Madras</div>
+          </div>
+          <div class="faculty-card reveal" style="transition-delay:0.1s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Sanskar</div>
+            <div class="faculty-subject">Science</div>
+            <div class="faculty-exp">MBA IIM Ranchi</div>
+          </div>
+          <div class="faculty-card reveal" style="transition-delay:0.2s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Faculty Name</div>
+            <div class="faculty-subject">English</div>
+            <div class="faculty-exp">MA, B.Ed</div>
+          </div>
+          <div class="faculty-card reveal" style="transition-delay:0.3s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Faculty Name</div>
+            <div class="faculty-subject">Hindi</div>
+            <div class="faculty-exp">MA, 12+ Yrs Exp</div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+          <a href="Faculty/team.html" target="_blank" class="btn btn-outline"
+            style="border-color:#d35400; color:#d35400;">View All Faculty <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-iit">
+        <div class="faculty-grid">
+          <div class="faculty-card reveal" style="border-top:3px solid var(--blue-accent)">
+            <div class="faculty-photo" style="border-color:var(--blue-accent)"><i class="fas fa-user-tie"
+                style="color:var(--blue-accent)"></i></div>
+            <div class="faculty-name">Expert Name</div>
+            <div class="faculty-subject" style="color:var(--blue-accent)">Physics (JEE)</div>
+            <div class="faculty-exp">IIT Alumni</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid var(--blue-accent); transition-delay:0.1s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Expert Name</div>
+            <div class="faculty-subject">Chemistry</div>
+            <div class="faculty-exp">Ph.D Faculty</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid var(--blue-accent); transition-delay:0.2s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Expert Name</div>
+            <div class="faculty-subject">Mathematics</div>
+            <div class="faculty-exp">B.Tech, NIT</div>
+          </div>
+          <div class="faculty-card reveal" style="border-top:3px solid var(--blue-accent); transition-delay:0.3s">
+            <div class="faculty-photo"><i class="fas fa-user-tie"></i></div>
+            <div class="faculty-name">Expert Name</div>
+            <div class="faculty-subject">Biology (NEET)</div>
+            <div class="faculty-exp">Medical Specialist</div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:30px;">
+          <a href="Faculty/team.html" target="_blank" class="btn btn-outline"
+            style="border-color:var(--blue-accent); color:var(--blue-accent);">View Premium Team <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>  
+  </section> -->
+
+  <!-- ADMISSION -->
+
+  <section class="admission" id="admission">
+    <div class="container">
+      <div class="admission-inner">
+        <div class="reveal-left">
+          <h2>Begin Your Journey<br>with SSIC</h2>
+          <p>Admission is open for the academic year 2025-26 for both branches. Join thousands of students who have
+            transformed their future with us.</p>
+          <div class="admission-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-info">
+                <h4>Fill the Enquiry Form</h4>
+                <p>Submit basic details to get started</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-info">
+                <h4>Counselling Session</h4>
+                <p>Meet our team for guidance and branch selection</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-info">
+                <h4>Entrance / Placement Test</h4>
+                <p>Optional test for scholarship and proper batch placement</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-info">
+                <h4>Confirm Admission</h4>
+                <p>Submit documents and fees to secure your seat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admission-form reveal-right">
+          <h3>📋 Admission Enquiry</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Student's Name *</label>
+              <input type="text" id="adm-name" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <label>Class Applying For *</label>
+              <select id="adm-class" required>
+                <option value="">Select Class</option>
+                <optgroup label="UP Board Wing">
+                  <option value="Class 6">Class 6</option>
+                  <option value="Class 7">Class 7</option>
+                  <option value="Class 8">Class 8</option>
+                  <option value="Class 9">Class 9</option>
+                  <option value="Class 10">Class 10</option>
+                  <option value="Class 11 (Science)">Class 11 (Science)</option>
+                  <option value="Class 12 (Science)">Class 12 (Science)</option>
+                </optgroup>
+                <optgroup label="IIT-JEE / NEET Wing">
+                  <option value="Primary Classes">Primary Classes</option>
+                  <option value="IIT-JEE Foundation">IIT-JEE Foundation</option>
+                  <option value="IIT-JEE Crash Course">IIT-JEE Crash Course</option>
+                  <option value="NEET Foundation">NEET Foundation</option>
+                  <option value="NEET Crash Course">NEET Crash Course</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Parent's Name *</label>
+              <input type="text" id="adm-parent" placeholder="Parent / Guardian Name" required>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number *</label>
+              <input type="tel" id="adm-phone" placeholder="+91 00000 00000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Branch *</label>
+            <select id="adm-branch" required>
+              <option value="">Select Branch</option>
+              <option value="UP Board Wing">UP Board Wing (6th to 12th)</option>
+              <option value="IIT-JEE / NEET Wing">IIT-JEE / NEET Premium Wing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Any Message</label>
+            <textarea id="adm-message" placeholder="Any specific query or requirement..." rows="3"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitEnquiry()">
+            <i class="fas fa-paper-plane"></i> Submit Enquiry
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICES -->
+  <section class="notices" id="notices">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Stay Updated</div>
+        <h2 class="section-title">Notices & <span>Announcements</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="notices-grid">
+        <div class="notice-card reveal-left">
+          <h3><i class="fas fa-bullhorn"></i> Important Notices</h3>
+          <ul class="notice-list" id="notice-list-main">
+            <li class="notice-item">
+              <div class="notice-date">
+                <div class="day">28</div>
+                <div class="mon">Feb</div>
+              </div>
+              <div class="notice-text">
+                <h4>Admission Open 2025-26 <span class="notice-badge">New</span></h4>
+                <p>Registration forms available at school office and online. Seats limited.</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date">
+                <div class="day">15</div>
+                <div class="mon">Mar</div>
+              </div>
+              <div class="notice-text">
+                <h4>Annual Sports Day</h4>
+                <p>All students are requested to participate. Parent attendance encouraged.</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date">
+                <div class="day">10</div>
+                <div class="mon">Mar</div>
+              </div>
+              <div class="notice-text">
+                <h4>UP Board Practical Exams</h4>
+                <p>Schedule for Class 10 & 12 practicals posted on notice board.</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date">
+                <div class="day">5</div>
+                <div class="mon">Apr</div>
+              </div>
+              <div class="notice-text">
+                <h4>Scholarship Test Registration <span class="notice-badge">New</span></h4>
+                <p>Scholarship exam for new students. Register before 30 March 2025.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="notice-card reveal-right">
+          <h3><i class="fas fa-calendar-alt"></i> Academic Calendar</h3>
+          <ul class="notice-list" id="calendar-list-main">
+            <li class="notice-item">
+              <div class="notice-date" style="background:var(--blue-accent)">
+                <div class="day">01</div>
+                <div class="mon">Apr</div>
+              </div>
+              <div class="notice-text">
+                <h4>New Academic Session Begins</h4>
+                <p>Session 2025-26 commences for all classes.</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date" style="background:var(--blue-accent)">
+                <div class="day">15</div>
+                <div class="mon">Jun</div>
+              </div>
+              <div class="notice-text">
+                <h4>First Unit Test</h4>
+                <p>First unit test for all classes. Syllabus will be shared shortly.</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date" style="background:var(--blue-accent)">
+                <div class="day">01</div>
+                <div class="mon">Oct</div>
+              </div>
+              <div class="notice-text">
+                <h4>Half-Yearly Exams</h4>
+                <p>Mid-term examinations for all classes (October 2025).</p>
+              </div>
+            </li>
+            <li class="notice-item">
+              <div class="notice-date" style="background:var(--blue-accent)">
+                <div class="day">20</div>
+                <div class="mon">Dec</div>
+              </div>
+              <div class="notice-text">
+                <h4>Winter Break</h4>
+                <p>School holiday from 21 December to 1 January.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Have questions? We're here to help. Reach out to us anytime.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>We're Always Happy<br>to Hear from You</h3>
+          <p>Whether you have questions about admissions, courses, fees, or anything else — our team is ready to guide
+            you every step of the way.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>UP Board Branch</h4>
+                <p>Sri Sai Inter College Lakhperabagh Barabanki, <br> [Lakhpedabagh, Barabanki, Uttar Pradesh 225001]
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" style="background:#f0f4ff;color:var(--blue-accent)"><i
+                  class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>IIT-JEE / NEET Branch</h4>
+                <p>Sri Sai Inter College A Premium School For IIT-JEE/NEET Preparation,<br> [W57V+G5G, Near Shanti
+                  Palace Barel, Canal Road, Lakhpedabagh, Barabanki, Uttar Pradesh 225001]</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 XXXXXXXXXX (UP Board)<br>+91 XXXXXXXXX (IIT/NEET Wing)</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fab fa-whatsapp" style="color:#25d366"></i></div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p>+91 74082362XX<br>Send us a message anytime!</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email</h4>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                    data-cfemail="1f767179705f6c6d766c7e7676716b7a6d7c7073737a787a317671">[email&#160;protected]</a><br><a
+                    href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                    data-cfemail="eeb6b6b6b6b6b6ae89838f8782c08d8183">[email&#160;protected]</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4>Working Hours</h4>
+                <p>Monday–Saturday: 8:00 AM – 4:00 PM<br>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="social-btn social-fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-wa" title="WhatsApp" target="_blank"><i
+                class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
+              title="YouTube" target="_blank""><i class=" fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
+              class="social-btn social-ig" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+
+        <div class="reveal-right">
+          <div class="contact-form-wrap">
+            <h3>Send Us a Message</h3>
+
+            <div class="cf-row">
+              <div class="cf-group">
+                <label>Your Name *</label>
+                <input type="text" placeholder="Full Name" id="cf-name" required>
+              </div>
+              <div class="cf-group">
+                <label>Mobile *</label>
+                <input type="tel" placeholder="+91 00000 00000" id="cf-phone" required>
+              </div>
+            </div>
+
+            <div class="cf-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" id="cf-email">
+            </div>
+
+            <div class="cf-group">
+              <label>Subject *</label>
+              <select id="cf-subject" required>
+                <option value="Admission Enquiry">Admission Enquiry</option>
+                <option value="Fee Structure">Fee Structure</option>
+                <option value="Faculty Information">Faculty Information</option>
+                <option value="Branch Details">Branch Details</option>
+                <option value="Scholarship">Scholarship</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="cf-group">
+              <label>Message *</label>
+              <textarea placeholder="Write your message here..." id="cf-message" required></textarea>
+            </div>
+
+            <button class="submit-btn" onclick="submitContact()">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </div>
+
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.710404182687!2d81.19077627489509!3d26.912684460092816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999612eaba7278f%3A0xf2a9ab4d6512dda8!2sSri%20Sai%20Inter%20College%20A%20Premium%20School%20For%20IIT-JEE%2FNEET%20Preparation!5e0!3m2!1sen!2sin!4v1772394637111!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.409484675881!2d81.1821416748953!3d26.922230059682466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999606aabd19675%3A0xdd49992f40f27da1!2sSri%20Sai%20Inter%20College%20Lakhperabagh%20Barabanki!5e0!3m2!1sen!2sin!4v1772394525827!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section> -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/Logo.png">
+          <h3>Sri Sai Inter College</h3>
+
+          <p>Two premier branches dedicated to shaping bright futures — from UP Board excellence to IIT-JEE & NEET
+            success. Committed to excellence in education since establishment.</p>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn social-wa" style="width:36px;height:36px;font-size:15px"><i
+                class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div style="margin-top:10px; margin-bottom:14px; font-size:px; color:#aaa;">
+            Developed by &mdash;
+            <a href="https://www.linkedin.com/in/gaurav-pratap-singh" target="_blank" rel="noopener noreferrer"
+              style="color:#f39c12;font-weight:500;text-decoration:none;transition:color 0.2s;"
+              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#f39c12'">
+              Gaurav Pratap Singh
+            </a>
+            <span style="font: size 12px; font-weight: 600; letter-spacing:1px;">(IIT Madras)</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="#branches"><i class="fas fa-angle-right"></i> Our Branches</a></li>
+            <li><a href="#gallery"><i class="fas fa-angle-right"></i> Gallery</a></li>
+            <li><a href="up-toppers/toppers.html"><i class="fas fa-angle-right"></i> Toppers</a></li>
+            <li><a href="Faculty/team.html"><i class="fas fa-angle-right"></i> Faculty</a></li>
+            <li><a href="#admission"><i class="fas fa-angle-right"></i> Admission</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Courses</h4>
+          <ul class="footer-links">
+            <li><a href="#branch-upboard"><i class="fas fa-angle-right"></i> Class 6 – 8</a></li>
+            <li><a href="#branch-upboard"><i class="fas fa-angle-right"></i> Class 9 – 10 (UP Board)</a></li>
+            <li><a href="#branch-upboard"><i class="fas fa-angle-right"></i> Class 11 – 12 (Science)</a></li>
+            <li><a href="#branch-iit"><i class="fas fa-angle-right"></i> IIT-JEE Foundation</a></li>
+            <li><a href="#branch-iit"><i class="fas fa-angle-right"></i> JEE Main & Advanced</a></li>
+            <li><a href="#branch-iit"><i class="fas fa-angle-right"></i> NEET (UG)</a></li>
+            <li><a href="#branch-iit"><i class="fas fa-angle-right"></i> Primary & Secondary</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-info">
+            <div class="fci"><i class="fas fa-map-marker-alt"></i><span>UP Board Wing: [Lakhpedabagh, Barabanki, Uttar
+                Pradesh 225001]</span></div>
+            <div class="fci"><i class="fas fa-map-marker-alt"></i><span>IIT/NEET Wing: [W57V+G5G, Near Shanti Palace
+                Barel, Canal Road, Lakhpedabagh, Barabanki, Uttar Pradesh, 225001]</span></div>
+            <div class="fci"><i class="fas fa-phone-alt"></i><span>+91 9415692615<br>09415692615</span></div>
+            <div class="fci"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="ec9f9f858fc2829f88ac8b818d8580c28f8381">[email&#160;protected]</a></span></div>
+            <div class="fci"><i class="fas fa-clock"></i><span>Mon–Sat: 8AM – 4PM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 <span>Sri Sai Inter College</span>. All Rights Reserved. | Designed with ❤️ for Excellence in
+          Education &nbsp;|&nbsp; <a href="/admin/admin.html" style="color:#555;text-decoration:none;font-size:12px;">⚙️
+            Admin</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <a href="#top" class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('successModal')"><i class="fas fa-times"></i></button>
+      <div style="font-size:60px;margin-bottom:16px">✅</div>
+      <h3>Thank You!</h3>
+      <p id="modalMessage">Your enquiry has been submitted successfully. Our team will contact you within 24 hours.</p>
+      <button class="btn btn-red" onclick="closeModal('successModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- ADD TOPPER MODAL -->
+  <div class="modal-overlay" id="topperModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('topperModal')"><i class="fas fa-times"></i></button>
+      <h3>🏆 Add Topper</h3>
+      <p>This section is currently managed by the administrator. Please contact the school office to add or update
+        topper profiles.</p>
+      <button class="btn btn-red" onclick="closeModal('topperModal')">Got It</button>
+    </div>
+  </div>
+
+  <!-- ADD FACULTY MODAL -->
+  <!-- ADD FACULTY MODAL (placeholder) -->
+  <div class="modal-overlay" id="facultyModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('facultyModal')"><i class="fas fa-times"></i></button>
+      <h3>👨‍🏫 Add Faculty</h3>
+      <p>Faculty profiles are managed via the Admin Panel.</p>
+      <button class="btn btn-red" onclick="closeModal('facultyModal')">Got It</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", loadNoticesOnPage);</script>
+</body>
+
+</html>

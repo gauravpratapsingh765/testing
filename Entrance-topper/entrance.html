@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrance Exam Selections — Sri Sai Inter College</title>
+  <link rel="icon" type="image/png" href="../Logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700;800&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="../db.js"></script>
+  <style>
+    :root {
+      --red: #c0392b;
+      --red-dark: #922b21;
+      --gold: #f39c12;
+      --gold-light: #f9ca24;
+      --blue: #1a3a6b;
+      --blue-dark: #0d2240;
+      --teal: #0e7490;
+      --green: #15803d;
+      --white: #fff;
+      --bg: #f0f4ff;
+      --text: #2c2c2c;
+      --muted: #666;
+      --shadow: 0 8px 40px rgba(0, 0, 0, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .top-bar a {
+      color: #cdf;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    header {
+      background: #fff;
+      padding: 14px 0;
+      box-shadow: 0 4px 20px rgba(26, 58, 107, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      font-family: 'Baloo 2', cursive;
+      flex-shrink: 0;
+    }
+
+    .logo-text h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1.1;
+    }
+
+    .logo-text p {
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .back-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #2563eb 100%);
+      padding: 72px 0 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: '⚛️';
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      font-size: 200px;
+      opacity: 0.07;
+      line-height: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 22px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .page-hero p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hb {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 14px;
+      padding: 14px 22px;
+      color: #fff;
+      text-align: center;
+      min-width: 130px;
+    }
+
+    .hb .num {
+      font-family: 'Baloo 2', cursive;
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .hb .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.82;
+      margin-top: 4px;
+    }
+
+    /* EXAM TYPE TABS */
+    .exam-tabs {
+      background: #fff;
+      padding: 0;
+      border-bottom: 2px solid #eef;
+      position: sticky;
+      top: 84px;
+      z-index: 90;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .exam-tabs-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .exam-tab-btns {
+      display: flex;
+    }
+
+    .exam-tab {
+      padding: 18px 28px;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      color: var(--muted);
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .exam-tab.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    .exam-tab:hover:not(.active) {
+      color: var(--blue);
+      border-bottom-color: #c5d3f5;
+    }
+
+    .tab-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 0 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f7f7f7;
+      border-radius: 50px;
+      padding: 8px 16px;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--blue);
+      background: #fff;
+    }
+
+    .search-box i {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: 'Mulish', sans-serif;
+      font-size: 13px;
+      width: 160px;
+      color: var(--text);
+    }
+
+    .add-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+
+    .add-btn:hover {
+      background: var(--blue-dark);
+    }
+
+    /* MAIN */
+    .main-section {
+      padding: 60px 0;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .section-head h2 span {
+      color: var(--blue);
+    }
+
+    .count-pill {
+      background: #f0f4ff;
+      color: var(--blue);
+      border: 1px solid #c5d3f5;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .sel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    /* SELECTION CARD */
+    .sel-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.35s cubic-bezier(.4, 0, .2, 1);
+      position: relative;
+      animation: fadeUp 0.5s both;
+    }
+
+    .sel-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.13);
+    }
+
+    .sel-bar {
+      height: 5px;
+    }
+
+    .jee-bar {
+      background: linear-gradient(to right, var(--blue), #2563eb);
+    }
+
+    .neet-bar {
+      background: linear-gradient(to right, var(--green), #16a34a);
+    }
+
+    .sel-inner {
+      padding: 26px 20px 22px;
+      text-align: center;
+    }
+
+    .sel-rank {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .sel-rank.jee-r {
+      background: linear-gradient(135deg, var(--blue), #2563eb);
+    }
+
+    .sel-rank.neet-r {
+      background: linear-gradient(135deg, var(--green), #16a34a);
+    }
+
+    .sel-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e8eeff, #d0d9ff);
+      border: 3px solid var(--blue);
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .sel-photo.neet-p {
+      background: linear-gradient(135deg, #e8fff0, #c8f0d8);
+      border-color: var(--green);
+    }
+
+    .sel-photo:hover {
+      opacity: 0.88;
+    }
+
+    .sel-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .sel-photo i {
+      font-size: 38px;
+      color: #aaa;
+    }
+
+
+    .sel-name {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .sel-exam {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .sel-exam.jee-c {
+      color: var(--blue);
+    }
+
+    .sel-exam.neet-c2 {
+      color: var(--green);
+    }
+
+    .sel-dest {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .sel-batch {
+      font-size: 12px;
+      color: #bbb;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .sel-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .jee-badge {
+      background: #f0f4ff;
+      color: var(--blue);
+      border: 1px solid #c5d3f5;
+    }
+
+    .neet-badge {
+      background: #f0fff5;
+      color: var(--green);
+      border: 1px solid #b0e8c8;
+    }
+
+    .sel-quote {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      padding: 10px 12px;
+      background: #f7faff;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .sel-quote.neet-q {
+      background: #f7fff9;
+      border-color: var(--green);
+    }
+
+    .card-btns {
+      display: flex;
+      gap: 7px;
+      justify-content: center;
+    }
+
+    .c-btn {
+      padding: 7px 13px;
+      border-radius: 50px;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.25s;
+    }
+
+    .c-btn-blue {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .c-btn-blue:hover {
+      background: var(--blue-dark);
+    }
+
+    .c-btn-green {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .c-btn-green:hover {
+      background: #15643a;
+    }
+
+    .c-btn-ghost {
+      background: #f5f5f5;
+      color: var(--muted);
+    }
+
+    .c-btn-ghost:hover {
+      background: #ffe8e8;
+      color: var(--red);
+    }
+
+    .add-card {
+      background: #fff;
+      border-radius: 22px;
+      border: 2px dashed #c5d3f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      min-height: 320px;
+      transition: all 0.3s;
+      color: #aac;
+    }
+
+    .add-card:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: #f4f7ff;
+    }
+
+    .add-card i {
+      font-size: 42px;
+    }
+
+    .add-card span {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 24px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+      animation: scaleIn 0.35s cubic-bezier(.4, 0, .2, 1);
+      overflow: hidden;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-head {
+      padding: 22px 30px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-head.jee-head {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    }
+
+    .modal-head.neet-head {
+      background: linear-gradient(135deg, var(--green), #15643a);
+    }
+
+    .modal-head h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .modal-x {
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-x:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .photo-up-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .photo-prev {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #f0f4ff;
+      border: 3px dashed #c5d3f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .photo-prev:hover {
+      border-color: var(--blue);
+    }
+
+    .photo-prev img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .photo-prev i {
+      font-size: 38px;
+      color: #aac;
+    }
+
+    .up-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: #f5f5f5;
+      border-radius: 50px;
+      transition: all 0.2s;
+    }
+
+    .up-label:hover {
+      background: #e8eeff;
+      color: var(--blue);
+    }
+
+    .fgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .fg {
+      margin-bottom: 0;
+    }
+
+    .fg.full {
+      grid-column: span 2;
+    }
+
+    .fg label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 2px solid #eee;
+      background: #fafafa;
+      font-size: 14px;
+      font-family: 'Mulish', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--blue);
+      background: #fff;
+    }
+
+    .fg textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .modal-foot {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 18px;
+    }
+
+    .btn-cancel {
+      padding: 11px 20px;
+      border-radius: 50px;
+      border: 2px solid #eee;
+      background: transparent;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    .btn-cancel:hover {
+      background: #f5f5f5;
+    }
+
+    .btn-save {
+      padding: 11px 24px;
+      border-radius: 50px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Mulish', sans-serif;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-save:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .del-modal {
+      max-width: 380px;
+    }
+
+    .del-modal .modal-body {
+      text-align: center;
+      padding: 36px 28px;
+    }
+
+    .del-modal .modal-body i {
+      font-size: 52px;
+      color: #e74c3c;
+      margin-bottom: 14px;
+    }
+
+    .del-modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .del-modal p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .del-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #222;
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 99999;
+      transition: transform 0.4s cubic-bezier(.4, 0, .2, 1);
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.success {
+      background: #27ae60;
+    }
+
+    .toast.error {
+      background: #e74c3c;
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(26, 58, 107, 0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 500;
+      text-decoration: none;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-top:hover {
+      background: var(--blue-dark);
+    }
+
+    footer {
+      background: #111;
+      color: #999;
+      padding: 28px 0;
+      text-align: center;
+      font-size: 13.5px;
+      margin-top: 30px;
+    }
+
+    footer span {
+      color: var(--blue);
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #bbb;
+      display: none;
+    }
+
+    .empty-state i {
+      font-size: 56px;
+      margin-bottom: 14px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @media(max-width:1100px) {
+      .sel-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:780px) {
+      .sel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fgrid {
+        grid-template-columns: 1fr;
+      }
+
+      .fg.full {
+        grid-column: span 1;
+      }
+
+      .exam-tab {
+        padding: 14px 16px;
+        font-size: 13px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .sel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <div><i class="fas fa-phone-alt"></i><a href="#">+91 786-000-0000</a><i class="fas fa-envelope"></i><a
+          href="#"><span class="__cf_email__"
+            data-cfemail="2b42454d446b585942584a4242455f4e59484447474e4c4e054245">[email&#160;protected]</span></a>
+      </div>
+      <div><a href="../index.html#admission"><i class="fas fa-user-plus"></i> Apply Now</a></div>
+    </div>
+  </div>
+  <header>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo-area">
+        <div class="logo-circle">SS</div>
+        <div class="logo-text">
+          <h1>Sri Sai Inter College</h1>
+          <p>IIT-JEE / NEET Wing</p>
+        </div>
+      </a>
+      <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="hero-tag">⚛️ Entrance Exam Wings</div>
+      <h1>Qualified <span>Engineers & Doctors</span></h1>
+      <p>Students of Sri Sai Premier Academy who cracked India's most competitive entrance exams — IIT-JEE & NEET.</p>
+      <div class="hero-badges">
+        <div class="hb">
+          <div class="num" id="jeeTotal">0</div>
+          <div class="lbl">JEE Selections</div>
+        </div>
+        <div class="hb">
+          <div class="num" id="neetTotal">0</div>
+          <div class="lbl">NEET Selections</div>
+        </div>
+        <div class="hb">
+          <div class="num">IITs+NITs</div>
+          <div class="lbl">Top Institutes</div>
+        </div>
+        <div class="hb">
+          <div class="num">AIIMS+</div>
+          <div class="lbl">Medical Colleges</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-tabs">
+    <div class="container exam-tabs-inner">
+      <div class="exam-tab-btns">
+        <button class="exam-tab active" onclick="switchTab('jee',this)"><i class="fas fa-atom"></i> IIT-JEE
+          Selections</button>
+        <button class="exam-tab" onclick="switchTab('neet',this)"><i class="fas fa-heartbeat"></i> NEET
+          Selections</button>
+      </div>
+      <div class="tab-right">
+        <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..." id="searchInput"
+            oninput="doSearch()"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="main-section">
+    <div class="container">
+      <!-- JEE TAB -->
+      <div class="tab-content active" id="tab-jee">
+        <div class="section-head">
+          <h2>IIT-JEE <span>Selections</span></h2>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <span class="count-pill" id="jeeCount">0 Selections</span>
+          </div>
+        </div>
+        <div class="sel-grid" id="jeeGrid"></div>
+        <div class="empty-state" id="jeeEmpty"><i class="fas fa-atom"></i>
+          <p>No JEE selections yet. Add your first!</p>
+        </div>
+      </div>
+      <!-- NEET TAB -->
+      <div class="tab-content" id="tab-neet">
+        <div class="section-head">
+          <h2>NEET <span>Selections</span></h2>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <span class="count-pill" id="neetCount">0 Selections</span>
+          </div>
+        </div>
+        <div class="sel-grid" id="neetGrid"></div>
+        <div class="empty-state" id="neetEmpty"><i class="fas fa-heartbeat"></i>
+          <p>No NEET selections yet. Add your first!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 <span>Sri Sai Inter College</span>. All Rights Reserved. &nbsp;|&nbsp;<a href="../index.html">Home</a><a
+          href="../up-toppers/toppers.html">Toppers</a><a href="../contact.html">Contact</a></p>
+    </div>
+  </footer>
+  <a href="#" class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></a>
+  <div class="toast" id="toast"></div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    let jeeData = [];
+    let neetData = [];
+
+    let curTab = 'jee', srch = '', editId = null, delId = null, editType = 'jee';
+
+    async function initSelections() {
+      try {
+        if (typeof isDbConfigured === 'function' && isDbConfigured() && typeof Selections !== 'undefined') {
+          const allSels = await Selections.getAll('order=created_at.desc');
+          jeeData = allSels.filter(r => {
+            const isNeet = (r.type === 'neet') || (r.exam || '').toLowerCase().includes('neet');
+            return !isNeet;
+          }).map(r => ({ ...r, college: r.college || r.inst, rank: r.rank || r.score, course: r.course || r.sub }));
+
+          neetData = allSels.filter(r => {
+            const isNeet = (r.type === 'neet') || (r.exam || '').toLowerCase().includes('neet');
+            return isNeet;
+          }).map(r => ({ ...r, college: r.college || r.inst, rank: r.rank || r.score, course: r.course || r.sub }));
+        } else {
+          jeeData = JSON.parse(localStorage.getItem('ssic_jee') || '[]');
+          neetData = JSON.parse(localStorage.getItem('ssic_neet') || '[]');
+        }
+      } catch (e) {
+        console.error('Error loading selections:', e);
+        jeeData = JSON.parse(localStorage.getItem('ssic_jee') || '[]');
+        neetData = JSON.parse(localStorage.getItem('ssic_neet') || '[]');
+      }
+      render();
+    }
+
+    function saveAll() { localStorage.setItem('ssic_jee', JSON.stringify(jeeData)); localStorage.setItem('ssic_neet', JSON.stringify(neetData)); }
+    async function syncDb(record, isEdit) { if (!isDbConfigured()) return record; try { return isEdit ? await Selections.update(record.id, record) : await Selections.add(record); } catch (e) { console.warn('DB sync failed:', e.message); return record; } }
+    async function deleteDb(id) { if (isDbConfigured()) { try { await Selections.delete(id); } catch (e) { } } }
+
+    function switchTab(tab, btn) {
+      curTab = tab;
+      document.querySelectorAll('.exam-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      render();
+    }
+
+    function render() {
+      renderTab('jee'); renderTab('neet');
+    }
+
+    function renderTab(type) {
+      const d = type === 'jee' ? jeeData : neetData;
+      const grid = document.getElementById(type + 'Grid');
+      const empty = document.getElementById(type + 'Empty');
+      const q = srch.toLowerCase();
+      const filtered = d.filter(x => !q || x.name.toLowerCase().includes(q) || (x.college || '').toLowerCase().includes(q) || (x.exam || '').toLowerCase().includes(q));
+      document.getElementById(type + 'Count').textContent = filtered.length + ' Selections';
+      document.getElementById(type + 'Total').textContent = d.length + '+';
+      grid.innerHTML = '';
+      if (!filtered.length) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      filtered.forEach((s, i) => { grid.appendChild(mkCard(s, i, type)); });
+    }
+
+    function mkCard(s, i, type) {
+      const isJee = type === 'jee';
+      const d = document.createElement('div'); d.className = 'sel-card'; d.style.animationDelay = (i * 0.06) + 's';
+      const ph = s.photo ? `<img src="${s.photo}" alt="${s.name}" style="width:100%;height:100%;object-fit:cover;display:block;">` : `<i class="fas fa-user-graduate" style="font-size:36px;color:#aaa"></i>`;
+      d.innerHTML = `
+  <div class="sel-bar ${isJee ? 'jee-bar' : 'neet-bar'}"></div>
+  <div class="sel-inner">
+    <div class="sel-rank ${isJee ? 'jee-r' : 'neet-r'}">${i + 1}</div>
+    <div style="position:relative;width:90px;margin:0 auto 14px;">
+      <div class="sel-photo ${isJee ? '' : 'neet-p'}">${ph}</div>
+    </div>
+    <div class="sel-name">${s.name}</div>
+    <div class="sel-exam ${isJee ? 'jee-c' : 'neet-c2'}">${s.exam}</div>
+    <div class="sel-dest">${s.college || ''}</div>
+    ${s.course ? `<div class="sel-dest" style="font-size:12px;color:#aaa">${s.course}</div>` : ''}
+    <div class="sel-batch">Batch ${s.batch || '—'}</div>
+    ${s.rank ? `<span class="sel-badge ${isJee ? 'jee-badge' : 'neet-badge'}">${s.rank}</span>` : ''}
+    ${s.quote ? `<div class="sel-quote ${isJee ? '' : 'neet-q'}">"${s.quote}"</div>` : ''}
+  </div>`;
+      return d;
+    }
+    function doSearch() { srch = document.getElementById('searchInput').value; render(); }
+    function saveSel() { const type = document.getElementById('editType').value; const name = document.getElementById('f-name').value.trim(); const exam = document.getElementById('f-exam').value.trim(); if (!name || !exam) { showToast('Name and Exam are required.', 'error'); return; } const obj = { name, exam, college: document.getElementById('f-college').value.trim(), course: document.getElementById('f-course').value.trim(), batch: document.getElementById('f-batch').value.trim(), rank: document.getElementById('f-rank').value.trim(), quote: document.getElementById('f-quote').value.trim(), photo: document.getElementById('photoData').value, type }; const arr = type === 'jee' ? jeeData : neetData; if (editId) { const idx = arr.findIndex(x => x.id === editId); if (idx > -1) arr[idx] = { ...arr[idx], ...obj }; showToast('Updated!', 'success'); } else { obj.id = Date.now(); arr.push(obj); showToast('Added!', 'success'); } syncDb(obj, !!editId).then(saved => { if (saved && saved.id) { const arr2 = type === 'jee' ? jeeData : neetData; const i = arr2.findIndex(x => x.id == obj.id); if (i > -1) arr2[i] = { ...arr2[i], ...saved }; saveAll(); render(); } }); saveAll(); closeModal('addModal'); render(); }
+    function showToast(msg, type = '') { const t = document.getElementById('toast'); t.textContent = (type === 'success' ? '✅ ' : type === 'error' ? '❌ ' : '') + msg; t.className = 'toast show ' + (type || ''); setTimeout(() => t.classList.remove('show'), 3000); }
+    window.addEventListener('scroll', () => { document.getElementById('backTop').classList.toggle('visible', window.scrollY > 300); });
+
+    initSelections();
+  </script>
+</body>
+
+</html>
