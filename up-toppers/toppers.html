@@ -1080,7 +1080,7 @@
     function filterYear(y, btn) { yFilter = y; document.querySelectorAll('.yt-btn').forEach(b => { if (b.textContent.includes('Year') || b.textContent === 'All Years' || ['2024-25', '2023-24', '2022-23', '2021-22'].includes(b.textContent)) b.classList.remove('active') }); btn.classList.add('active'); render(); }
     function filterClass(c, btn) { cFilter = c;['class-all', 'class-10', 'class-12'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('active') }); btn.classList.add('active'); render(); }
     function searchToppers(v) { search = v.toLowerCase(); render(); }
-    function openPhotoUpload() { const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.onchange = e => { const r = new FileReader(); r.readAsDataURL(e.target.files[0]); }; inp.click(); }
+    function openPhotoUpload() { const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.onchange = e => { if (!e.target.files[0]) return; fileToBase64(e.target.files[0]).then(b => { document.getElementById('photoData').value = b; const img = document.querySelector('.photo-circle img'); if (img) { img.src = b; img.style.display = 'block'; } const ico = document.querySelector('.photo-circle i'); if (ico) ico.style.display = 'none'; }); }; inp.click(); }
     function saveTopper() {
       const name = document.getElementById('f-name').value.trim();
       const score = document.getElementById('f-score').value.trim();
