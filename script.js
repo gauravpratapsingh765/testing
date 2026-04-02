@@ -97,31 +97,27 @@ function switchTab(id, btn) {
 // ===== IMAGE UPLOAD =====
 function previewImage(input, previewId) {
     if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
+        fileToBase64(input.files[0]).then(base64 => {
             const preview = document.getElementById(previewId);
             const placeholder = input.closest('label');
             if (preview) {
-                preview.src = e.target.result;
+                preview.src = base64;
                 preview.style.display = 'block';
                 if (placeholder) placeholder.style.display = 'none';
             }
-        };
-        reader.readAsDataURL(input.files[0]);
+        }).catch(e => console.error(e));
     }
 }
 
 function galleryPreview(input, index) {
     if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
+        fileToBase64(input.files[0]).then(base64 => {
             const img = document.getElementById('gallery-img-' + index);
             const label = input.closest('.gallery-item').querySelector('.gallery-placeholder');
-            img.src = e.target.result;
+            img.src = base64;
             img.style.display = 'block';
             if (label) label.style.display = 'none';
-        };
-        reader.readAsDataURL(input.files[0]);
+        }).catch(e => console.error(e));
     }
 }
 
@@ -130,11 +126,10 @@ function uploadTopperPhoto(container) {
     input.type = 'file';
     input.accept = 'image/*';
     input.onchange = (e) => {
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            container.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
-        };
-        reader.readAsDataURL(e.target.files[0]);
+        if (!e.target.files[0]) return;
+        fileToBase64(e.target.files[0]).then(base64 => {
+            container.innerHTML = `<img src="${base64}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+        }).catch(err => console.error(err));
     };
     input.click();
 }
