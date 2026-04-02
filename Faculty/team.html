@@ -1402,7 +1402,7 @@
       return d;
     }
 
-    function qPhoto(id, t) { const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.onchange = e => { const r = new FileReader(); r.onload = ev => { const m = data[t].find(x => x.id === id); if (m) { m.photo = ev.target.result; saveAll(); renderAll(); toast2('Photo updated!', 'ok'); } }; r.readAsDataURL(e.target.files[0]); }; inp.click(); }
+    function qPhoto(id, t) { const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.onchange = e => { if (!e.target.files[0]) return; fileToBase64(e.target.files[0]).then(b => { const m = data[t].find(x => x.id === id); if (m) { m.photo = b; saveAll(); renderAll(); toast2('Photo updated!', 'ok'); } }).catch(err => console.error(err)); }; inp.click(); }
     function saveMember() {
       const t = document.getElementById('ftype').value;
       const name = document.getElementById('fn').value.trim(); const role = document.getElementById('frole').value.trim();
