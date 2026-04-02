@@ -151,10 +151,39 @@ function isDbConfigured() {
 
 function fileToBase64(file) {
   return new Promise((res, rej) => {
-    const r = new FileReader();
-    r.onload = e => res(e.target.result);
-    r.onerror = rej;
-    r.readAsDataURL(file);
+    // 1. Read original file
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      // 2. Load into Image object
+      const img = new Image();
+      img.onload = () => {
+        // 3. Calculate new dimensions (max 500px width/height to save huge DB space)
+        const MAX_SIZE = 500;
+        let width = img.width;
+        let height = img.height;
+        if (width > height) {
+          if (width > MAX_SIZE) { height *= MAX_SIZE / width; width = MAX_SIZE; }
+        } else {
+          if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; }
+        }
+        
+        // 4. Draw to Canvas and compress
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff'; // Fill white for transparent PNGs turning to JPEG
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        // Output compressed JPEG (0.7 quality is extremely lightweight while looking good)
+        res(canvas.toDataURL('image/jpeg', 0.7));
+      };
+      img.onerror = rej;
+      img.src = e.target.result;
+    };
+    reader.onerror = rej;
+    reader.readAsDataURL(file);
   });
 }
 
