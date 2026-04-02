@@ -2281,19 +2281,19 @@
         input.value = '';
         return;
       }
-      if (file.size > 2 * 1024 * 1024) {
-        toast('Image must be under 2 MB. Please resize and try again.', 'err');
+      if (file.size > 15 * 1024 * 1024) {
+        toast('Image must be under 15 MB.', 'err');
         input.value = '';
         return;
       }
-      const reader = new FileReader();
-      reader.onload = e => {
-        document.getElementById(imgId).src = e.target.result;
+      fileToBase64(file).then(base64 => {
+        document.getElementById(imgId).src = base64;
         document.getElementById(imgId).style.display = 'block';
         document.getElementById(icoId).style.display = 'none';
-        document.getElementById(dataId).value = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        document.getElementById(dataId).value = base64;
+      }).catch(err => {
+        toast('Failed to load image', 'err');
+      });
     }
     function clearPh(imgId, icoId, dataId) {
       document.getElementById(imgId).src = '';
