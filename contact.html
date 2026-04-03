@@ -15,6 +15,71 @@
 </head>
 
 <body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:09415692615">09415692615</a>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:srisaiintercollege@gmail.com">srisaiintercollege@gmail.com</a>
+            </div>
+            <div>
+                <a href="index.html#admission"><i class="fas fa-user-plus"></i> Apply Now</a>
+                <a href="index.html#notices"><i class="fas fa-bell"></i> Notices</a>
+                <a href="contact.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="top">
+        <div class="container header-inner">
+            <div class="logo-area">
+                <img class="logo-img" src="img/Logo.png">
+                <div class="logo-text">
+                    <h1>Sri Sai Inter College</h1>
+                    <p>Committed to Excellence in Education</p>
+                    <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li class="dropdown">
+                        <a href="Faculty/team.html">Faculty <i class="fas fa-chevron-down"
+                                style="font-size:10px"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Faculty/team.html"><i class="fas fa-user-shield"></i> Administration</a></li>
+                            <li><a href="Faculty/team.html"><i class="fas fa-chalkboard-teacher"></i> UP Board
+                                    Faculty</a></li>
+                            <li><a href="Faculty/team.html"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" style="cursor:default;">Toppers <i class="fas fa-chevron-down"
+                                style="font-size:10px"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="up-toppers/toppers.html"><i class="fas fa-trophy"></i> UP Board Toppers</a>
+                            </li>
+                            <li><a href="Entrance-topper/entrance.html"><i class="fas fa-atom"></i> IIT-JEE / NEET
+                                    Toppers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
+                    <li><a href="index.html#admission">Admission</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger" onclick="toggleNav()">
+                    <span></span><span></span><span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header reveal">
@@ -83,9 +148,10 @@
                         </div>
                     </div>
                     <div class="contact-socials">
-                        <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=919415692615" class="social-btn social-wa" title="WhatsApp"
-                            target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb" title="Facebook"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=919415692615" class="social-btn social-wa"
+                            title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
                             title="YouTube" target="_blank""><i class=" fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
@@ -141,6 +207,51 @@
         </div>
         </div>
     </section>
+    <style>
+        footer {
+            background: #111;
+            color: #888;
+            padding: 26px 0;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: var(--red);
+        }
+
+        footer a {
+            color: var(--gold-l);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #bbb;
+            display: none;
+        }
+
+        .empty i {
+            font-size: 56px;
+            margin-bottom: 14px;
+        }
+
+        .empty p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 <span>Sri Sai Inter College</span>. All Rights Reserved. &nbsp;|&nbsp;<a
+                    href="../index.html">Home</a><a href="../up-toppers/toppers.html">Toppers</a><a
+                    href="../contact.html">Contact</a></p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 

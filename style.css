@@ -1993,7 +1993,16 @@ footer {
   }
 
   .top-bar .container {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .top-bar .container > div {
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 2px;
   }
 
   section {
