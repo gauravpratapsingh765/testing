@@ -106,6 +106,25 @@ async function sbFetch(table, method, body, id, filters) {
   if (filters) params.push(filters);
   if (params.length) url += '?' + params.join('&');
 
+  const methodToUse = method || 'GET';
+  
+  // CACHE CHECK: Instantly load lists from browser memory if fetched < 5 mins ago
+  const cacheKey = `ssic_cache_${table}_${filters || 'all'}`;
+  if (methodToUse === 'GET' && !id) {
+    const cachedData = sessionStorage.getItem(cacheKey);
+    const cachedTime = sessionStorage.getItem(cacheKey + '_time');
+    if (cachedData && cachedTime && (Date.now() - cachedTime < 300000)) {
+      return JSON.parse(cachedData);
+    }
+  }
+
+  // CACHE INVALIDATION: If an Admin adds/edits/deletes, clear cache immediately
+  if (methodToUse !== 'GET') {
+    Object.keys(sessionStorage).forEach(key => {
+      if (key.startsWith('ssic_cache_')) sessionStorage.removeItem(key);
+    });
+  }
+
   const access_token = sessionStorage.getItem('ssic_access_token');
   const headers = {
     'apikey': key_base,
@@ -113,13 +132,23 @@ async function sbFetch(table, method, body, id, filters) {
     'Content-Type': 'application/json',
     'Prefer': 'return=representation'
   };
-  const opts = { method: method || 'GET', headers };
+  const opts = { method: methodToUse, headers };
   if (body) opts.body = JSON.stringify(body);
 
   const res = await fetch(url, opts);
   if (!res.ok) { const err = await res.text(); throw new Error(`DB ${res.status}: ${err}`); }
   const text = await res.text();
-  return text ? JSON.parse(text) : [];
+  const parsedData = text ? JSON.parse(text) : [];
+
+  // SAVE CACHE: Store the downloaded GET data to skip the 2-3s delay next time
+  if (methodToUse === 'GET' && !id) {
+    try {
+      sessionStorage.setItem(cacheKey, JSON.stringify(parsedData));
+      sessionStorage.setItem(cacheKey + '_time', Date.now());
+    } catch (e) { } // Ignore if data exceeds 5MB limit
+  }
+
+  return parsedData;
 }
 
 // ============================================================
