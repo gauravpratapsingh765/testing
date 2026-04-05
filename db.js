@@ -1,17 +1,4 @@
-/**
- * ============================================================
- *  SSIC DATABASE MODULE — Powered by Supabase (Free PostgreSQL)
- *  Sri Sai Inter College
- * ============================================================
- *
- *  SETUP — One time, 5 minutes:
- *  1. Go to https://supabase.com → Sign up free → New project
- *  2. Go to SQL Editor → paste & run the SQL below
- *  3. Go to Settings → API → copy URL + anon key
- *  4. Open admin.html → Database Setup → enter credentials → Save
- *  5. Done! All pages now save to real PostgreSQL.
- * ============================================================
- */
+
 
 // Credentials are stored in localStorage and patched in at runtime
 // via admin.html. Default values here are placeholders.
@@ -26,71 +13,6 @@ function escHtml(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-/**
- * ============================================================
- *  RUN THIS SQL IN SUPABASE SQL EDITOR:
- * ============================================================
- *
- * create table if not exists alumni (
- *   id bigint generated always as identity primary key,
- *   name text not null, role text not null, org text,
- *   batch text, location text, category text default 'other',
- *   branch text, quote text, photo text,
- *   created_at timestamptz default now()
- * );
- *
- * create table if not exists toppers (
- *   id bigint generated always as identity primary key,
- *   name text not null, score text not null, class text,
- *   year text, father text, subject text, quote text, photo text,
- *   created_at timestamptz default now()
- * );
- *
- * create table if not exists selections (
- *   id bigint generated always as identity primary key,
- *   name text not null, exam text not null, score text not null,
- *   batch text, inst text, father text, sub text, quote text, photo text,
- *   created_at timestamptz default now()
- * );
- *
- * create table if not exists team (
- *   id bigint generated always as identity primary key,
- *   name text not null, role text not null, dept text, qual text,
- *   exp text, bio text, type text not null, photo text,
- *   sort_order integer default 0,
- *   created_at timestamptz default now()
- * );
- *
- * create table if not exists notices (
- *   id bigint generated always as identity primary key,
- *   title text not null,
- *   body text,
- *   day text,
- *   month text,
- *   type text default 'notice',   -- 'notice' or 'calendar'
- *   badge text,                   -- optional label e.g. 'New'
- *   is_active boolean default true,
- *   sort_order integer default 0,
- *   created_at timestamptz default now()
- * );
- *
- * create table if not exists ticker (
- *   id bigint generated always as identity primary key,
- *   text text not null,
- *   is_active boolean default true,
- *   sort_order integer default 0,
- *   created_at timestamptz default now()
- * );
- *
- * -- Enable RLS (Public Read, Authenticated Admin Write)
- * do $$ begin
- *   for t in select unnest(array['alumni','toppers','selections','team','notices','ticker']) loop
- *     execute format('alter table %I enable row level security', t);
- *     execute format('create policy "Public Read" on %I for select using (true)', t);
- *     execute format('create policy "Admin Write" on %I for all using (auth.role() = ''authenticated'')', t);
- *   end loop;
- * end $$;
- */
 
 // ============================================================
 // CORE FETCH HELPER
@@ -107,7 +29,7 @@ async function sbFetch(table, method, body, id, filters) {
   if (params.length) url += '?' + params.join('&');
 
   const methodToUse = method || 'GET';
-  
+
   // CACHE CHECK: Instantly load lists from browser memory if fetched < 5 mins ago
   const cacheKey = `ssic_cache_${table}_${filters || 'all'}`;
   if (methodToUse === 'GET' && !id) {
@@ -195,7 +117,7 @@ function fileToBase64(file) {
         } else {
           if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; }
         }
-        
+
         // 4. Draw to Canvas and compress
         const canvas = document.createElement('canvas');
         canvas.width = width;
@@ -204,7 +126,7 @@ function fileToBase64(file) {
         ctx.fillStyle = '#ffffff'; // Fill white for transparent PNGs turning to JPEG
         ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
-        
+
         // Output compressed JPEG (0.7 quality is extremely lightweight while looking good)
         res(canvas.toDataURL('image/jpeg', 0.7));
       };
