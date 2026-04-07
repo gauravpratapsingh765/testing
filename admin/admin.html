@@ -2199,7 +2199,7 @@
       document.getElementById(cfg.tf).textContent = filtered.length + ' records';
       const tb = document.getElementById(cfg.tb);
       if (!filtered.length) { tb.innerHTML = `<tr><td colspan="7" class="tempty"><i class="fas fa-inbox"></i><p>${d.length ? 'No results match your search.' : 'No records yet. Click "+ Add" to get started.'}</p></td></tr>`; return; }
-      tb.innerHTML = filtered.slice(0, 50).map(r => `<tr>${cfg.cols(r)}</tr>`).join('');
+      tb.innerHTML = filtered.map(r => `<tr>${cfg.cols(r)}</tr>`).join('');
     }
 
     // ── Delete ─────────────────────────────────────────────────────────────
@@ -2485,6 +2485,7 @@
       const type = document.getElementById('tm-type').value;
       const rec = { name, role, dept: document.getElementById('tm-dept').value.trim(), qual: document.getElementById('tm-qual').value.trim(), exp: document.getElementById('tm-exp').value.trim(), bio: document.getElementById('tm-bio').value.trim(), photo: document.getElementById('tmPhoto').value, type };
       try {
+        showOv('Saving...');
         if (isDbConfigured()) {
           if (teamEditId) { const s = await Team.update(teamEditId, rec); const i = allData.team.findIndex(x => x.id == teamEditId); if (i > -1) allData.team[i] = { ...allData.team[i], ...s }; }
           else { const s = await Team.add(rec); allData.team.unshift(s); }
@@ -2513,7 +2514,7 @@
         document.getElementById('teamMo').classList.remove('open');
         updateCounts(); renderTable('team');
         toast((teamEditId ? 'Member updated' : 'Member added') + ' ✓', 'ok');
-      } catch (e) { toast('Error: ' + e.message, 'err'); }
+      } catch (e) { toast('Error: ' + e.message, 'err'); } finally { hideOv(); }
     }
 
     // ── Panel Nav ──────────────────────────────────────────────────────────
