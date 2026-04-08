@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Gallery — Sri Sai Inter College</title>
+  <link rel="icon" type="image/png" href="img/Logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="db.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       GALLERY PAGE — FULL STYLES
+    ═══════════════════════════════════════════════════ */
+    :root {
+      --red: #A3332D;
+      --red-dk: #7a2420;
+      --gold: #f0a500;
+      --text: #1a1a1a;
+      --muted: #666;
+      --bg: #fdfaf9;
+      --card-r: 14px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ── HERO BANNER ──────────────────────────────── */
+    .gallery-hero {
+      background: linear-gradient(135deg, #1a0a08 0%, #3a1410 45%, #A3332D 100%);
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .gallery-hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .gallery-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .gallery-hero h1 span {
+      color: var(--gold);
+    }
+
+    .gallery-hero p {
+      color: rgba(255, 255, 255, .8);
+      font-size: 16px;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* ── FILTER BAR ───────────────────────────────── */
+    .filter-wrap {
+      background: #fff;
+      border-bottom: 1.5px solid #f0e5e4;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .06);
+    }
+
+    .filter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label-txt {
+      font-size: 11px;
+      font-weight: 800;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: 1.5px solid #e0d0d0;
+      background: #fff;
+      font-family: 'Mulish', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #888;
+      cursor: pointer;
+      transition: all .22s;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(163, 51, 45, .3);
+    }
+
+    /* Search input */
+    .gallery-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #faf6f6;
+      border: 1.5px solid #e8d5d5;
+      border-radius: 30px;
+      padding: 7px 16px;
+      margin-left: auto;
+      transition: border-color .2s;
+    }
+
+    .gallery-search:focus-within {
+      border-color: var(--red);
+    }
+
+    .gallery-search i {
+      color: var(--red);
+      font-size: 13px;
+    }
+
+    .gallery-search input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: 'Mulish', sans-serif;
+      font-size: 13px;
+      width: 180px;
+      color: #333;
+    }
+
+    .gallery-search input::placeholder {
+      color: #bbb;
+    }
+
+    /* ── MAIN CONTENT AREA ────────────────────────── */
+    .gallery-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ── MASONRY GRID ─────────────────────────────── */
+    .masonry-grid {
+      columns: 3;
+      column-gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .masonry-grid {
+        columns: 2;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .masonry-grid {
+        columns: 1;
+      }
+    }
+
+    .gallery-card {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      border-radius: var(--card-r);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .07);
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(163, 51, 45, .18);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      display: block;
+      transition: transform .4s;
+      background: #f0eaea;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Category badge */
+    .card-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(163, 51, 45, .88);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-badge.infrastructure {
+      background: rgba(30, 80, 160, .85);
+    }
+
+    .card-badge.sports {
+      background: rgba(20, 140, 60, .85);
+    }
+
+    .card-badge.cultural {
+      background: rgba(163, 51, 45, .85);
+    }
+
+    .card-badge.labs {
+      background: rgba(100, 50, 160, .85);
+    }
+
+    .card-badge.video {
+      background: rgba(0, 0, 0, .75);
+    }
+    .card-badge.facilitation { background: rgba(180, 100, 0, .85); }
+
+    /* Hover overlay */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .55) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 14px;
+    }
+
+    .gallery-card:hover .card-overlay {
+      opacity: 1;
+    }
+
+    .card-caption {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+      max-width: 80%;
+    }
+
+    .card-zoom-icon {
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, .18);
+      border: 1.5px solid rgba(255, 255, 255, .4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ── VIDEO CARDS ──────────────────────────────── */
+    .video-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .video-thumb-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-thumb-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      background: rgba(163, 51, 45, .92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .35);
+      transition: transform .25s, background .25s;
+      pointer-events: none;
+    }
+
+    .gallery-card:hover .play-btn {
+      transform: translate(-50%, -50%) scale(1.12);
+      background: var(--red);
+    }
+
+    .video-duration {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, .75);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    /* ── SECTION DIVIDER (Videos) ─────────────────── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0 28px;
+    }
+
+    .section-divider-line {
+      flex: 1;
+      height: 1.5px;
+      background: #f0e5e4;
+    }
+
+    .section-divider-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .section-divider-label span {
+      color: var(--red);
+    }
+
+    /* ── VIDEO GRID ───────────────────────────────── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── EMPTY STATE ──────────────────────────────── */
+    .gallery-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #bbb;
+      display: none;
+    }
+
+    .gallery-empty i {
+      font-size: 44px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .gallery-empty p {
+      font-size: 16px;
+    }
+
+    /* ── COUNT BAR ────────────────────────────────── */
+    .gallery-count {
+      font-size: 13px;
+      color: #aaa;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .gallery-count span {
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    /* ══════════════════════════════════════════════
+       LIGHTBOX
+    ══════════════════════════════════════════════ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .95);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lb-inner {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lb-media {
+      max-height: 80vh;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      display: block;
+      object-fit: contain;
+    }
+
+    .lb-iframe-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+    }
+
+    .lb-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .lb-caption {
+      color: rgba(255, 255, 255, .8);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .lb-counter {
+      position: absolute;
+      bottom: -32px;
+      color: rgba(255, 255, 255, .5);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Nav arrows */
+    .lb-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      z-index: 10000;
+    }
+
+    .lb-arrow:hover {
+      background: var(--red);
+    }
+
+    .lb-arrow.lb-prev {
+      left: 16px;
+    }
+
+    .lb-arrow.lb-next {
+      right: 16px;
+    }
+
+    /* Close */
+    .lb-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s;
+      z-index: 10000;
+    }
+
+    .lb-close:hover {
+      background: var(--red);
+    }
+
+    /* ── VIDEO MODAL ──────────────────────────────── */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .95);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .video-modal.open {
+      display: flex;
+    }
+
+    .vm-inner {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .vm-inner .lb-close {
+      position: absolute;
+      top: -52px;
+      right: 0;
+    }
+
+    .vm-frame {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .vm-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── BACK BUTTON ──────────────────────────────── */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .75);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 24px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      transition: all .2s;
+      position: relative;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, .1);
+      color: #fff;
+    }
+
+    /* ── RESPONSIVE FILTERS ───────────────────────── */
+    @media (max-width: 600px) {
+      .filter-inner {
+        gap: 7px;
+      }
+
+      .filter-btn {
+        font-size: 12px;
+        padding: 6px 13px;
+      }
+
+      .gallery-search {
+        display: none;
+      }
+
+      .gallery-main {
+        padding: 24px 14px 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════ TOP BAR ══════════════════ -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <a href="tel:09415692615"><i class="fas fa-phone"></i> 09415692615</a>
+        <a href="mailto:srisaiintercollege@gmail.com"><i class="fas fa-envelope"></i> srisaiintercollege@gmail.com</a>
+      </div>
+      <div>
+        <a href="contact.html"><i class="fas fa-user-plus"></i> Apply Now</a>
+        <a href="index.html#notices"><i class="fas fa-bell"></i> Notices</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ HEADER ══════════════════ -->
+  <header>
+    <div class="header-inner container">
+      <div class="logo-area">
+        <img src="img/Logo.png" alt="Sri Sai Inter College Logo" class="logo-img">
+        <div class="logo-text">
+          <h1>Sri Sai Inter College</h1>
+          <div class="tagline-row">
+            <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li class="dropdown">
+            <a href="#">Academics <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="Faculty/team.html">Faculty</a></li>
+              <li><a href="index.html#branches">Branches</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">Toppers <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="up-toppers/toppers.html">UP Board Toppers</a></li>
+              <li><a href="Entrance-topper/entrance.html">Entrance Toppers</a></li>
+            </ul>
+          </li>
+          <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
+          <li><a href="gallery.html" class="nav-active">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="gallery-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      <div class="gallery-hero-tag">📸 Campus Life</div>
+      <h1>Our <span>Campus Gallery</span></h1>
+      <p>Explore our vibrant campus, modern facilities, memorable events, and student achievements.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FILTER BAR ══════════════════ -->
+  <div class="filter-wrap">
+    <div class="filter-inner">
+      <span class="filter-label-txt">Filter:</span>
+      <button class="filter-btn active" data-filter="all">✦ All</button>
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="cultural">Cultural Events</button>
+      <button class="filter-btn" data-filter="labs">Labs &amp; Classrooms</button>
+      <button class="filter-btn" data-filter="facilitation">Facilitation</button>
+      <div class="gallery-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="gallerySearch" placeholder="Search photos…" oninput="searchGallery()">
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ GALLERY MAIN ══════════════════ -->
+  <main class="gallery-main">
+
+    <div class="gallery-count" id="galleryCount"><span id="countNum">0</span> photos</div>
+
+    <!-- ── PHOTO MASONRY GRID (populated dynamically by Cloudinary) ── -->
+    <div id="loadingState" style="text-align:center;padding:60px 20px;color:#bbb;">
+      <i class="fas fa-circle-notch fa-spin" style="font-size:36px;margin-bottom:14px;display:block;color:#A3332D;"></i>
+      <p style="font-size:15px;font-weight:600;">Loading gallery…</p>
+    </div>
+    <div class="masonry-grid" id="masonryGrid" style="display:none;"></div>
+
+    <!-- Empty state -->
+    <div class="gallery-empty" id="galleryEmpty">
+      <i class="fas fa-image"></i>
+      <p>No photos match your filter.</p>
+    </div>
+
+    <!-- ══════════════════ VIDEO SECTION ══════════════════ -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-label">🎬 <span>Video</span> Highlights</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="video-grid">
+
+      <!-- Replace the YouTube IDs below with your real video IDs -->
+      <div class="gallery-card video-card" onclick="openVideo('LhpZJwUboeI')">
+        <span class="card-badge video">▶ Video</span>
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LhpZJwUboeI/hqdefault.jpg" alt="Annual Day 2024" loading="lazy">
+          <div class="play-btn"><i class="fas fa-play"></i></div>
+          <span class="video-duration">3:24</span>
+        </div>
+        <div class="card-overlay">
+          <span class="card-caption">Annual Day 2024</span>
+        </div>
+      </div>
+
+      <div class="gallery-card video-card" onclick="openVideo('LhpZJwUboeI')">
+        <span class="card-badge video">▶ Video</span>
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LhpZJwUboeI/hqdefault.jpg" alt="Republic Day Parade" loading="lazy">
+          <div class="play-btn"><i class="fas fa-play"></i></div>
+          <span class="video-duration">5:10</span>
+        </div>
+        <div class="card-overlay">
+          <span class="card-caption">Republic Day Parade</span>
+        </div>
+      </div>
+
+      <div class="gallery-card video-card" onclick="openVideo('LhpZJwUboeI')">
+        <span class="card-badge video">▶ Video</span>
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LhpZJwUboeI/hqdefault.jpg" alt="Sports Day Highlights" loading="lazy">
+          <div class="play-btn"><i class="fas fa-play"></i></div>
+          <span class="video-duration">4:45</span>
+        </div>
+        <div class="card-overlay">
+          <span class="card-caption">Sports Day Highlights</span>
+        </div>
+      </div>
+
+      <!-- <div class="gallery-card video-card" onclick="openVideo('LhpZJwUboeI')">
+        <span class="card-badge video">▶ Video</span>
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LhpZJwUboeI/hqdefault.jpg" alt="Sports Day Highlights" loading="lazy">
+          <div class="play-btn"><i class="fas fa-play"></i></div>
+          <span class="video-duration">4:45</span>
+        </div>
+        <div class="card-overlay">
+          <span class="card-caption">Sports Day Highlights</span>
+        </div>
+      </div> -->
+
+    </div><!-- /video-grid -->
+
+  </main>
+
+  <!-- ══════════════════ LIGHTBOX ══════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <button class="lb-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <button class="lb-arrow lb-prev" onclick="lbPrev()"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-arrow lb-next" onclick="lbNext()"><i class="fas fa-chevron-right"></i></button>
+    <div class="lb-inner">
+      <img class="lb-media" id="lbImg" src="" alt="">
+      <div class="lb-caption" id="lbCaption"></div>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ VIDEO MODAL ══════════════════ -->
+  <div class="video-modal" id="videoModal" onclick="closeVideoOnBg(event)">
+    <div class="vm-inner">
+      <button class="lb-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+      <div class="vm-frame">
+        <iframe id="videoFrame" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SCRIPTS ══════════════════ -->
+  <script>
+    // ══════════════════════════════════════════════════════════════════
+    //  CLOUDINARY CONFIGURATION
+    //  ➜ Replace 'your_cloud_name' with your actual Cloudinary cloud name
+    //  ➜ You can find it at: https://console.cloudinary.com → Dashboard
+    //  ➜ NO API SECRET needed here — this is safe for client-side use
+    // ══════════════════════════════════════════════════════════════════
+    var CLOUDINARY = {
+      cloud_name: 'dd5fdpbe0',   // ← CHANGE THIS
+
+      // Image transformation applied to all gallery thumbnails
+      // q_100 = maximum quality (no compression), f_auto = best format, no width restriction
+      transform: 'q_100,f_auto',
+
+      // Tags you will apply to images in Cloudinary (must match exactly)
+      // These also map to the filter buttons in the UI
+      tags: [
+        { key: 'infrastructure', label: 'Infrastructure', badge: 'infrastructure' },
+        { key: 'sports', label: 'Sports', badge: 'sports' },
+        { key: 'cultural', label: 'Cultural Events', badge: 'cultural' },
+        { key: 'labs',          label: 'Labs & Classrooms', badge: 'labs'          },
+        { key: 'facilitation', label: 'Facilitation',      badge: 'facilitation'  }
+      ]
+    };
+
+    // ── CLOUDINARY TAG-LIST ENDPOINT ──────────────────────────────────
+    // Format: https://res.cloudinary.com/{cloud_name}/image/list/{tag}.json
+    // ⚠️  IMPORTANT: You must enable this in Cloudinary FIRST:
+    //     Cloudinary Console → Settings → Security →
+    //     uncheck "Restrict resource list" → Save
+    // ─────────────────────────────────────────────────────────────────
+
+    var allImages = [];   // flat list of all fetched images
+    var activeFilter = 'all';
+    var searchQuery = '';
+
+    // ── FETCH ALL TAGS IN PARALLEL ────────────────────────────────────
+    async function loadGallery() {
+      try {
+        var fetches = CLOUDINARY.tags.map(function (tagObj) {
+          var url = 'https://res.cloudinary.com/' + CLOUDINARY.cloud_name +
+            '/image/list/' + tagObj.key + '.json';
+          return fetch(url)
+            .then(function (r) {
+              if (!r.ok) return { resources: [] };
+              return r.json();
+            })
+            .then(function (data) {
+              return (data.resources || []).map(function (img) {
+                return {
+                  public_id: img.public_id,
+                  format: img.format || 'jpg',
+                  caption: img.context && img.context.custom
+                    ? (img.context.custom.caption || img.public_id.split('/').pop())
+                    : img.public_id.split('/').pop(),
+                  category: tagObj.key,
+                  badge: tagObj.badge,
+                  url: buildUrl(img.public_id, img.format || 'jpg')
+                };
+              });
+            });
+        });
+
+        var results = await Promise.all(fetches);
+        results.forEach(function (arr) { allImages = allImages.concat(arr); });
+
+        // Hide loader, show grid
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('masonryGrid').style.display = '';
+
+        if (allImages.length === 0) {
+          showEmpty('No images found. Make sure you have uploaded and tagged images in Cloudinary.');
+          return;
+        }
+
+        renderGrid(allImages);
+      } catch (err) {
+        document.getElementById('loadingState').innerHTML =
+          '<i class="fas fa-exclamation-circle" style="font-size:36px;color:#A3332D;margin-bottom:14px;display:block;"></i>' +
+          '<p style="font-size:14px;">Could not load gallery. Check your cloud name and enable resource listing in Cloudinary settings.</p>';
+        console.error('Cloudinary fetch error:', err);
+      }
+    }
+
+    // ── BUILD CLOUDINARY IMAGE URL ────────────────────────────────────
+    function buildUrl(publicId, format) {
+      return 'https://res.cloudinary.com/' + CLOUDINARY.cloud_name +
+        '/image/upload/' + CLOUDINARY.transform +
+        '/' + publicId + '.' + format;
+    }
+
+    // ── RENDER GRID ───────────────────────────────────────────────────
+    function renderGrid(images) {
+      var grid = document.getElementById('masonryGrid');
+      grid.innerHTML = '';
+      if (!images.length) { showEmpty(); return; }
+      document.getElementById('galleryEmpty').style.display = 'none';
+
+      images.forEach(function (img, idx) {
+        var card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.dataset.cat = img.category;
+        card.dataset.caption = img.caption;
+        card.setAttribute('onclick', 'openLightbox(' + idx + ')');
+
+        card.innerHTML =
+          '<span class="card-badge ' + img.badge + '">' + getCategoryLabel(img.category) + '</span>' +
+          '<img src="' + img.url + '" alt="' + escHtml(img.caption) + '" loading="lazy">' +
+          '<div class="card-overlay">' +
+          '<span class="card-caption">' + escHtml(img.caption) + '</span>' +
+          '<span class="card-zoom-icon"><i class="fas fa-expand-alt"></i></span>' +
+          '</div>';
+
+        grid.appendChild(card);
+      });
+
+      updateCount(images.length);
+    }
+
+    function getCategoryLabel(key) {
+      var found = CLOUDINARY.tags.find(function (t) { return t.key === key; });
+      return found ? found.label : key;
+    }
+    function escHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // ── FILTER & SEARCH ───────────────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        activeFilter = this.dataset.filter;
+        applyFilter();
+      });
+    });
+
+    function searchGallery() {
+      searchQuery = (document.getElementById('gallerySearch').value || '').trim().toLowerCase();
+      applyFilter();
+    }
+
+    function applyFilter() {
+      var filtered = allImages.filter(function (img) {
+        var matchCat = activeFilter === 'all' || img.category === activeFilter;
+        var matchSearch = !searchQuery ||
+          img.caption.toLowerCase().includes(searchQuery) ||
+          img.category.toLowerCase().includes(searchQuery);
+        return matchCat && matchSearch;
+      });
+      renderGrid(filtered);
+    }
+
+    function updateCount(n) {
+      document.getElementById('countNum').textContent = n;
+    }
+    function showEmpty(msg) {
+      var el = document.getElementById('galleryEmpty');
+      el.style.display = 'block';
+      if (msg) el.querySelector('p').textContent = msg;
+      document.getElementById('countNum').textContent = 0;
+    }
+
+    // ── LIGHTBOX ──────────────────────────────────────────────────────
+    var lbImages = [];
+    var lbIndex = 0;
+
+    function openLightbox(idx) {
+      // Rebuild from currently visible cards
+      lbImages = [];
+      document.querySelectorAll('#masonryGrid .gallery-card').forEach(function (card) {
+        var img = card.querySelector('img');
+        if (img) lbImages.push({ src: img.src, caption: card.dataset.caption || '' });
+      });
+      lbIndex = idx;
+      showLbSlide(lbIndex);
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLbSlide(i) {
+      if (!lbImages[i]) return;
+      document.getElementById('lbImg').src = lbImages[i].src;
+      document.getElementById('lbCaption').textContent = lbImages[i].caption;
+      document.getElementById('lbCounter').textContent = (i + 1) + ' / ' + lbImages.length;
+    }
+    function lbNext() { lbIndex = (lbIndex + 1) % lbImages.length; showLbSlide(lbIndex); }
+    function lbPrev() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLbSlide(lbIndex); }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+    document.addEventListener('keydown', function (e) {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') lbNext();
+      if (e.key === 'ArrowLeft') lbPrev();
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ── VIDEO MODAL ───────────────────────────────────────────────────
+    function openVideo(videoId) {
+      document.getElementById('videoFrame').src =
+        'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+      document.getElementById('videoModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideo() {
+      document.getElementById('videoFrame').src = '';
+      document.getElementById('videoModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeVideoOnBg(e) {
+      if (e.target === document.getElementById('videoModal')) closeVideo();
+    }
+
+    // ── NAV TOGGLE ────────────────────────────────────────────────────
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    document.addEventListener('click', function (e) {
+      var nav = document.getElementById('navLinks');
+      var ham = document.getElementById('hamburger');
+      if (nav && ham && !nav.contains(e.target) && !ham.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
+
+    // ── KICK OFF ──────────────────────────────────────────────────────
+    loadGallery();
+  </script>
+
+  <style>
+    /* Nav active link */
+    .nav-active {
+      color: #c0392b !important;
+      font-weight: 800;
+    }
+  </style>
+
+</body>
+
+</html>
