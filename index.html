@@ -21,7 +21,7 @@
   <script type="text/javascript">
     (function () {
       emailjs.init({
-        publicKey: "5E8mNJidb7tfjSPS5",
+        publicKey: "_TmHwqYfH0sq8LCLJ",
       });
     })();
   </script>
@@ -36,10 +36,10 @@
     <div class="container">
       <div>
         <i class="fas fa-phone-alt"></i>
-        <a href="tel:09415692615">09415692615</a>
-        <i class="fas fa-envelope"></i>
-        <a href="/cdn-cgi/l/email-protection#e390908a80cd8d9087a3848e828a8fcd808c8e"><span class="__cf_email__"
-            data-cfemail="9be8e8f2f8b5f5e8ffdbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a>
+        <a href="tel:8874667588">+91 88746 67588</a>
+        <a href="tel:9936816482">+91 99368 16482</a>
+        <a href="mailto:srisaiintercollegeedu@gmail.com"><i class="fas fa-envelope"></i>
+          srisaiintercollegeedu@gmail.com</a>
       </div>
       <div>
         <a href="#admission"><i class="fas fa-user-plus"></i> Apply Now</a>
@@ -213,12 +213,12 @@
         </div>
         <div class="stat-item reveal" style="transition-delay:0.2s">
           <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-num" data-target="90">0</div>
           <div class="stat-label">Board Toppers</div>
         </div>
         <div class="stat-item reveal" style="transition-delay:0.3s">
           <div class="stat-icon"><i class="fas fa-medal"></i></div>
-          <div class="stat-num" data-target="95">0</div>
+          <div class="stat-num" data-target="99">0</div>
           <div class="stat-label">% Pass Rate</div>
         </div>
       </div>
@@ -423,7 +423,7 @@
             <img src="img/Computer lab 1.jpeg" alt="Facilities" class="gallery-img-static">
             <div class="gallery-overlay"><i class="fas fa-expand-alt"></i></div>
           </div>
-          <div class="gallery-caption">Infrasturcture</div>
+          <div class="gallery-caption">Infrastructure</div>
         </div>
 
         <div class="gallery-item-container">
@@ -704,8 +704,8 @@
           <div style="margin-top:20px;display:flex;gap:10px">
             <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb"
               style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-btn social-wa" style="width:36px;height:36px;font-size:15px"><i
-                class="fab fa-whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=918874667588" class="social-btn social-wa"
+              style="width:36px;height:36px;font-size:15px"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
               style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
@@ -755,10 +755,14 @@
                 Pradesh 225001]</span></div>
             <div class="fci"><i class="fas fa-map-marker-alt"></i><span>IIT/NEET Wing: [W57V+G5G, Near Shanti Palace
                 Barel, Canal Road, Lakhpedabagh, Barabanki, Uttar Pradesh, 225001]</span></div>
-            <div class="fci"><i class="fas fa-phone-alt"></i><span>+91 9415692615<br>09415692615</span></div>
-            <div class="fci"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection"
-                  class="__cf_email__"
-                  data-cfemail="ec9f9f858fc2829f88ac8b818d8580c28f8381">[email&#160;protected]</a></span></div>
+            <div class="fci"><i class="fas fa-phone-alt"></i>
+              <span>
+                <a href="tel:8874667588">+91 88746 67588</a> <br>
+                <a href="tel:9936816482">+91 99368 16482</a>
+              </span>
+            </div>
+            <div class="fci"><i class="fas fa-envelope"></i><span><a
+                  href="mailto:srisaiintercollegeedu@gmail.com">srisaiintercollegeedu@gmail.com</a></span></div>
             <div class="fci"><i class="fas fa-clock"></i><span>Mon–Sat: 8AM – 4PM</span></div>
           </div>
         </div>
@@ -811,6 +815,49 @@
 
   <script src="script.js"></script>
   <script>document.addEventListener("DOMContentLoaded", loadNoticesOnPage);</script>
+
+  <!-- Image Lightbox -->
+  <div id="homeLightbox"
+    style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+    <button onclick="closeHomeLightbox()"
+      style="position:absolute; top:18px; right:22px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer; line-height:1;">✕</button>
+    <img id="homeLbImg" src="" alt=""
+      style="max-width:90vw; max-height:85vh; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.6); object-fit:contain;">
+    <p id="homeLbCaption" style="color:#ccc; margin-top:12px; font-size:14px; letter-spacing:0.5px;"></p>
+  </div>
+
+  <script>
+    // Make gallery items clickable
+    document.querySelectorAll('.gallery-item').forEach(function (item) {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function () {
+        var img = item.querySelector('img');
+        var caption = item.closest('.gallery-item-container').querySelector('.gallery-caption');
+        openHomeLightbox(img.src, caption ? caption.textContent : img.alt);
+      });
+    });
+
+    function openHomeLightbox(src, caption) {
+      var lb = document.getElementById('homeLightbox');
+      document.getElementById('homeLbImg').src = src;
+      document.getElementById('homeLbCaption').textContent = caption || '';
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeHomeLightbox() {
+      document.getElementById('homeLightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('homeLightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeHomeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeHomeLightbox();
+    });
+  </script>
 </body>
 
 </html>

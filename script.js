@@ -27,6 +27,17 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Close mobile menu when any nav link is clicked (skip dropdown toggles)
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#navLinks a').forEach(link => {
+        link.addEventListener('click', () => {
+            // Don't close if this link opens a dropdown submenu
+            if (link.closest('.dropdown') && link.parentElement.classList.contains('dropdown')) return;
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+});
+
 // Mobile dropdown
 document.querySelectorAll('.dropdown > a').forEach(a => {
     a.addEventListener('click', (e) => {
@@ -200,7 +211,7 @@ function submitEnquiry() {
     submitBtn.innerHTML = 'Sending...';
     submitBtn.disabled = true;
 
-    emailjs.send('service_k89z5zo', 'template_funqrfi', templateParams)
+    emailjs.send('service_z7xt8qz', 'template_oqywgn8', templateParams)
         .then(function (response) {
             document.getElementById('modalMessage').textContent = 'Your admission enquiry has been submitted! Our counsellor will contact you within 24 hours. Thank you for choosing Sri Sai Inter College.';
             document.getElementById('successModal').classList.add('open');
@@ -276,7 +287,7 @@ function submitContact() {
     contactBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     contactBtn.disabled = true;
 
-    emailjs.send('service_k89z5zo', 'template_1v2lszb', contactParams)
+    emailjs.send('service_z7xt8qz', 'template_ezum70a', contactParams)
         .then(function (response) {
             document.getElementById('modalMessage').textContent = 'Thank you ' + contactParams.from_name + '! Your message regarding "' + contactParams.subject + '" has been sent successfully.';
             document.getElementById('successModal').classList.add('open');

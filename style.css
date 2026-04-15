@@ -101,7 +101,7 @@ body {
 /* ===== HEADER ===== */
 header {
   background: linear-gradient(135deg, #fff 60%, #fff8f8 100%);
-  padding: 18px 0;
+  padding: 12px 0;
   box-shadow: 0 4px 20px rgba(192, 57, 43, 0.12);
   position: sticky;
   top: 0;
@@ -1776,6 +1776,18 @@ footer {
   font-size: 13px;
   color: #999;
   line-height: 1.5;
+}
+
+.fci span a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.fci span a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
 }
 
 .footer-bottom {

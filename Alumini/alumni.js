@@ -192,14 +192,12 @@ function clearForm() {
 // ===== PHOTO UPLOAD =====
 function handlePhotoUpload(input) {
   if (!input.files || !input.files[0]) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    document.getElementById('photoData').value = e.target.result;
-    document.getElementById('photoPreviewImg').src = e.target.result;
+  fileToBase64(input.files[0]).then(base64 => {
+    document.getElementById('photoData').value = base64;
+    document.getElementById('photoPreviewImg').src = base64;
     document.getElementById('photoPreviewImg').style.display = 'block';
     document.getElementById('photoIcon').style.display = 'none';
-  };
-  reader.readAsDataURL(input.files[0]);
+  }).catch(e => console.error(e));
 }
 
 function quickUploadPhoto(id) {
@@ -207,17 +205,16 @@ function quickUploadPhoto(id) {
   input.type = 'file';
   input.accept = 'image/*';
   input.onchange = (e) => {
-    const reader = new FileReader();
-    reader.onload = (ev) => {
+    if (!e.target.files[0]) return;
+    fileToBase64(e.target.files[0]).then(base64 => {
       const a = alumniList.find(x => x.id === id);
       if (a) {
-        a.photo = ev.target.result;
+        a.photo = base64;
         saveToStorage();
         renderAlumni();
         showToast('Photo updated!', 'success');
       }
-    };
-    reader.readAsDataURL(e.target.files[0]);
+    }).catch(err => console.error(err));
   };
   input.click();
 }

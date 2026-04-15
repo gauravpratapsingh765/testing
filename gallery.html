@@ -43,7 +43,9 @@
 
     /* ── HERO BANNER ──────────────────────────────── */
     .gallery-hero {
-      background: linear-gradient(135deg, #1a0a08 0%, #3a1410 45%, #A3332D 100%);
+      background:
+        linear-gradient(135deg, rgba(20,6,4,0.82) 0%, rgba(100,20,14,0.72) 50%, rgba(163,51,45,0.65) 100%),
+        url('../img/main3.1.jpeg') center center / cover no-repeat;
       padding: 80px 0 60px;
       text-align: center;
       position: relative;
@@ -54,7 +56,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/svg%3E");
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%);
     }
 
     .gallery-hero-tag {
@@ -274,7 +276,10 @@
     .card-badge.video {
       background: rgba(0, 0, 0, .75);
     }
-    .card-badge.facilitation { background: rgba(180, 100, 0, .85); }
+
+    .card-badge.facilitation {
+      background: rgba(180, 100, 0, .85);
+    }
 
     /* Hover overlay */
     .card-overlay {
@@ -645,8 +650,10 @@
   <div class="top-bar">
     <div class="container">
       <div>
-        <a href="tel:09415692615"><i class="fas fa-phone"></i> 09415692615</a>
-        <a href="mailto:srisaiintercollege@gmail.com"><i class="fas fa-envelope"></i> srisaiintercollege@gmail.com</a>
+        <a href="tel:8874667588">+91 88746 67588</a>
+        <a href="tel:9936816482">+91 99368 16482</a>
+        <a href="mailto:srisaiintercollegeedu@gmail.com"><i class="fas fa-envelope"></i>
+          srisaiintercollegeedu@gmail.com</a>
       </div>
       <div>
         <a href="contact.html"><i class="fas fa-user-plus"></i> Apply Now</a>
@@ -847,8 +854,8 @@
         { key: 'infrastructure', label: 'Infrastructure', badge: 'infrastructure' },
         { key: 'sports', label: 'Sports', badge: 'sports' },
         { key: 'cultural', label: 'Cultural Events', badge: 'cultural' },
-        { key: 'labs',          label: 'Labs & Classrooms', badge: 'labs'          },
-        { key: 'facilitation', label: 'Facilitation',      badge: 'facilitation'  }
+        { key: 'labs', label: 'Labs & Classrooms', badge: 'labs' },
+        { key: 'facilitation', label: 'Facilitation', badge: 'facilitation' }
       ]
     };
 
@@ -933,7 +940,6 @@
         card.setAttribute('onclick', 'openLightbox(' + idx + ')');
 
         card.innerHTML =
-          '<span class="card-badge ' + img.badge + '">' + getCategoryLabel(img.category) + '</span>' +
           '<img src="' + img.url + '" alt="' + escHtml(img.caption) + '" loading="lazy">' +
           '<div class="card-overlay">' +
           '<span class="card-caption">' + escHtml(img.caption) + '</span>' +
@@ -1068,6 +1074,12 @@
     }
   </style>
 
-</body>
-
-</html>
+  <!-- Footer -->
+  <footer
+    style="background:#111; color:#aaa; text-align:center; padding:14px 20px; font-size:13px; letter-spacing:0.3px;">
+    © 2025 <span style="color:#A3332D; font-weight:700;">Sri Sai Inter College</span>. All Rights Reserved.
+    &nbsp;|&nbsp;
+    <a href="index.html" style="color:#c8922a; text-decoration:none;">Home</a> &nbsp;
+    <a href="contact.html" style="color:#c8922a; text-decoration:none;">Contact</a> &nbsp;
+    <a href="entrance.html" style="color:#c8922a; text-decoration:none;">Entrance</a> &nbsp;
+    <a href="results.html" style="color:#c8922a; text-decoration:none;">Res
