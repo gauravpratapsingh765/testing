@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – Sri Sai Inter College</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mulish:wght@300;400;500;600;700&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --red: #c0392b;
+      --red-dark: #922b21;
+      --gold: #f39c12;
+      --gold-l: #f9ca24;
+      --blue: #1a3a6b;
+      --txt: #1c1c1c;
+      --muted: #666;
+      --bg-soft: #fdf6f5;
+      --white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      color: var(--txt);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── SECTION COMMON ─────────────────────────────── */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(192, 57, 43, .08);
+      border: 1px solid rgba(192, 57, 43, .2);
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 900;
+      line-height: 1.18;
+      color: var(--txt);
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-top: 12px;
+    }
+
+    .divider-line {
+      width: 52px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      margin: 14px 0 0;
+    }
+
+    /* ── HERO ───────────────────────────────────────── */
+    .about-hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: url('img/main3.1.jpeg') center center / cover no-repeat fixed;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg,
+          rgba(20, 6, 4, .88) 0%,
+          rgba(100, 20, 14, .78) 45%,
+          rgba(26, 58, 107, .70) 100%);
+    }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 0 24px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .12);
+      border: 1.5px solid rgba(255, 255, 255, .28);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 7px 22px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(6px);
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 span {
+      color: var(--gold);
+    }
+
+    .about-hero p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .82);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 38px;
+      right: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      animation: floatBob 2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .scroll-mouse {
+      width: 26px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, .55);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .scroll-mouse::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 2px;
+      animation: scrollDot 1.6s ease-in-out infinite;
+    }
+
+    .hero-scroll-cue span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .55);
+    }
+
+    @keyframes floatBob {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    @keyframes scrollDot {
+      0% {
+        top: 6px;
+        opacity: 1;
+      }
+
+      100% {
+        top: 20px;
+        opacity: 0;
+      }
+    }
+
+    /* ── VISION & MISSION ───────────────────────────── */
+    .vm-section {
+      background: var(--bg-soft);
+    }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .vm-card {
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-left: 5px solid var(--red);
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .07), 0 1px 4px rgba(0, 0, 0, .04);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .vm-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(163, 51, 45, .12);
+    }
+
+    .vm-card.mission {
+      border-left-color: var(--blue);
+    }
+
+    .vm-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(192, 57, 43, .12), rgba(192, 57, 43, .05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+      color: var(--red);
+    }
+
+    .vm-card.mission .vm-icon {
+      background: linear-gradient(135deg, rgba(26, 58, 107, .12), rgba(26, 58, 107, .05));
+      color: var(--blue);
+    }
+
+    .vm-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: var(--txt);
+    }
+
+    .vm-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── STORY TIMELINE ─────────────────────────────── */
+    .timeline-section {
+      background: #fff;
+    }
+
+    .timeline-wrap {
+      position: relative;
+      margin-top: 64px;
+    }
+
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--red), var(--gold), var(--blue));
+      transform: translateX(-50%);
+    }
+
+    .tl-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 48px);
+      margin-bottom: 56px;
+      position: relative;
+    }
+
+    .tl-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 48px);
+    }
+
+    .tl-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 30px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, .07);
+      border: 1px solid #f0e8e8;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .tl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(163, 51, 45, .1);
+    }
+
+    .tl-year {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(192, 57, 43, .08);
+      border-radius: 10px;
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+    }
+
+    .tl-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .tl-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tl-dot {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--red);
+      box-shadow: 0 0 0 4px rgba(192, 57, 43, .15);
+      z-index: 1;
+    }
+
+    .tl-item:nth-child(even) .tl-dot {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(26, 58, 107, .15);
+    }
+
+    /* ── STATS ──────────────────────────────────────── */
+    .stats-section {
+      background: linear-gradient(135deg, var(--red-dark) 0%, #7d1c0e 50%, var(--blue) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .stats-header {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats-header .section-label {
+      color: var(--gold);
+      background: rgba(249, 202, 36, .1);
+      border-color: rgba(249, 202, 36, .3);
+    }
+
+    .stats-header .section-title {
+      color: #fff;
+    }
+
+    .stats-header .section-title span {
+      color: var(--gold);
+    }
+
+    .stats-header .divider-line {
+      margin: 14px auto 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 18px;
+      padding: 40px 24px;
+      text-align: center;
+      transition: background .3s, transform .3s;
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, .14);
+      transform: translateY(-5px);
+    }
+
+    .stat-icon {
+      font-size: 32px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 4vw, 56px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .stat-num span {
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .65);
+      margin-top: 10px;
+    }
+
+    /* ── VALUES GRID ────────────────────────────────── */
+    .values-section {
+      background: var(--bg-soft);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 56px;
+    }
+
+    .val-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+      border: 1px solid #f3eded;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      cursor: default;
+    }
+
+    .val-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 48px rgba(163, 51, 45, .12);
+      border-color: rgba(192, 57, 43, .2);
+    }
+
+    .val-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fdf0ee, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+      color: #aaa;
+      transition: color .3s, background .3s, transform .3s;
+    }
+
+    .val-card:hover .val-icon {
+      color: var(--red);
+      background: linear-gradient(135deg, rgba(192, 57, 43, .12), rgba(192, 57, 43, .04));
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .val-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .val-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── CO-FOUNDERS ────────────────────────────────── */
+    .founders-section {
+      background: #fff;
+    }
+
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .founder-card {
+      background: var(--bg-soft);
+      border-radius: 20px;
+      padding: 44px 36px;
+      text-align: center;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, .06);
+      border: 1px solid #f0e8e8;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .founder-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(163, 51, 45, .12);
+    }
+
+    .founder-img-frame {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 22px;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 4px var(--red), 0 14px 36px rgba(163, 51, 45, .18);
+      overflow: hidden;
+      background: #f3eded;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      color: #ccc;
+    }
+
+    .founder-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .founder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .founder-role {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .founder-divider {
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      margin: 0 auto 18px;
+    }
+
+    .founder-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: #555;
+      line-height: 1.75;
+      border-left: 3px solid var(--red);
+      padding-left: 16px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .founder-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      text-align: left;
+    }
+
+    .founder-quals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .founder-quals span {
+      font-size: 12px;
+      color: var(--muted);
+      background: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid #e8dede;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .vm-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .founders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Who We Are + Branches grids */
+      [data-reveal]>div,
+      .whowe-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .founder-card {
+        padding: 36px 24px;
+      }
+
+      .timeline-wrap::before {
+        left: 20px;
+      }
+
+      .tl-item,
+      .tl-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 52px;
+        padding-right: 0;
+      }
+
+      .tl-dot {
+        left: 20px;
+      }
+
+      .tl-item:nth-child(even) .tl-dot {
+        left: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 56px 0;
+      }
+
+      .vm-grid,
+      .founders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vm-card {
+        padding: 28px 22px;
+      }
+
+      .val-card {
+        padding: 28px 20px;
+      }
+
+      .about-hero h1 {
+        font-size: 34px;
+      }
+
+      .about-hero p {
+        font-size: 15px;
+      }
+
+      .stat-card {
+        padding: 28px 16px;
+      }
+
+      .hero-content-wrap {
+        padding: 0 16px;
+      }
+
+      .tl-card {
+        padding: 20px 18px;
+      }
+
+      .founder-img-frame {
+        width: 140px;
+        height: 140px;
+        font-size: 52px;
+      }
+
+      /* Inline grids collapse on mobile */
+      .about-inline-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .branches-inline-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .features-inline-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:8874667588">+91 88746 67588</a>
+        <a href="tel:9936816482">+91 99368 16482</a>
+        <a href="mailto:srisaiintercollegeedu@gmail.com"><i class="fas fa-envelope"></i>
+          srisaiintercollegeedu@gmail.com</a>
+      </div>
+      <div>
+        <a href="index.html#admission"><i class="fas fa-user-plus"></i> Apply Now</a>
+        <a href="index.html#notices"><i class="fas fa-bell"></i> Notices</a>
+        <a href="contact.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="top">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img class="logo-img" src="img/Logo.png" alt="Sri Sai Inter College Logo">
+        <div class="logo-text">
+          <h1>Sri Sai Inter College</h1>
+          <p>Committed to Excellence in Education</p>
+          <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="nav-active">About</a></li>
+          <li class="dropdown">
+            <a href="Faculty/team.html">Faculty <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="Faculty/team.html"><i class="fas fa-user-shield"></i> Administration</a></li>
+              <li><a href="Faculty/team.html"><i class="fas fa-chalkboard-teacher"></i> UP Board Faculty</a></li>
+              <li><a href="Faculty/team.html"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" style="cursor:default;">Toppers <i class="fas fa-chevron-down"
+                style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="up-toppers/toppers.html"><i class="fas fa-trophy"></i> UP Board Toppers</a></li>
+              <li><a href="Entrance-topper/entrance.html"><i class="fas fa-atom"></i> IIT-JEE / NEET Toppers</a></li>
+            </ul>
+          </li>
+          <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
+          <li><a href="index.html#admission">Admission</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ①  HERO -->
+  <section class="about-hero">
+    <div class="hero-content-wrap">
+      <div class="hero-badge">🏫 Our Story &amp; Legacy</div>
+      <h1>More Than a College —<br><span>A Launchpad for Life</span></h1>
+      <p>For over a decade, Sri Sai Inter College has been nurturing young minds with values, rigour, and care — from
+        foundational schooling to IIT-JEE &amp; NEET excellence.</p>
+      <a href="index.html#admission" class="btn btn-primary" style="font-size:15px;padding:14px 34px;">
+        <i class="fas fa-user-plus"></i> Apply for Admission
+      </a>
+    </div>
+    <div class="hero-scroll-cue" onclick="document.getElementById('vision').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ②  VISION & MISSION -->
+  <section class="vm-section" id="vision">
+    <div class="container" style="max-width: 1340px;">
+      <div data-reveal>
+        <span class="section-label">Our Purpose</span>
+        <h2 class="section-title">Vision &amp; <span>Mission</span></h2>
+        <div class="divider-line"></div>
+        <p class="section-sub">Everything we do is guided by a clear purpose — to empower every student to reach their
+          highest potential, morally and academically.</p>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card" data-reveal>
+          <div class="vm-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p style="font-weight: bold;">To be a nationally recognised centre of academic excellence, where every
+            student,
+            regardless of background, is equipped to compete at the highest level, lead with
+            integrity, and build a future without limits.</p>
+          <p style="margin-top:14px;">We envision an institution where board toppers and IIT/NEET selections are not
+            exceptions;
+            they are the standard. Where disciplined minds meet compassionate hearts, and where every
+            child who walks through our doors leaves as a confident, capable, and nationally competitive
+            individual.</p>
+        </div>
+        <div class="vm-card mission" data-reveal>
+          <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p style="font-weight: bold;">To nurture each student with the care of a teacher and the commitment of a
+            mentor —
+            delivering excellence in both board education and competitive preparation, so that
+            quality learning is never a privilege, but a promise.</p>
+          <p style="margin-top:14px; margin-bottom:10px;">We are committed to:</p>
+          <ul
+            style="list-style: none; padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: var(--muted); line-height: 1.8;">
+            <li style="display: flex; align-items: flex-start; gap: 8px;">
+              <span style="font-size:10px; flex-shrink: 0; margin-top: 6px;">●</span>
+              <span>Making premium education accessible to students from all walks of life</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px;">
+              <span style="font-size:10px; flex-shrink: 0; margin-top: 6px;">●</span>
+              <span>Providing personal attention and mentoring at every stage of learning</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px;">
+              <span style="font-size:10px; flex-shrink: 0; margin-top: 6px;">●</span>
+              <span>Maintaining the highest academic standards through experienced, dedicated faculty</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px;">
+              <span style="font-size:10px; flex-shrink: 0; margin-top: 6px;">●</span>
+              <span>Nurturing not just scholars, but responsible and driven human beings</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③  WHO WE ARE + BRANCHES -->
+  <section style="background:#fff; padding:90px 0;">
+    <div class="container">
+
+      <!-- Who We Are -->
+      <div data-reveal class="about-inline-grid"
+        style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;">
+        <div>
+          <img src="img/primary wing.jpeg" alt="Sri Sai Inter College Campus"
+            style="width:100%; border-radius:20px; aspect-ratio:4/3; object-fit:cover; display:block; box-shadow:0 16px 48px rgba(0,0,0,.1);">
+        </div>
+        <div>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title" style="margin-bottom:16px;">Building Bright Futures<br>for <span>Tomorrow's
+              Leaders</span></h2>
+          <div class="divider-line"></div>
+          <p style="font-size:15px; color:#666; line-height:1.8; margin-top:16px; margin-bottom:14px;">Sri Sai Inter
+            College was founded on a simple but powerful belief, that every student, regardless of where they come from,
+            deserves a chance to reach their highest potential. </p>
+          <p style="font-size:15px; color:#666; line-height:1.8; margin-bottom:24px;">From Class 6 to Class 12 under the
+            UP Board, to IIT-JEE and NEET preparation at the highest level, both our branches exist under one mission:
+            teach well, care deeply, and never give up on a student. Over 18 years, that commitment has produced board
+            toppers, national selections, and thousands of young people who left these halls more confident, more
+            capable, and more ready for the world than when they arrived..</p>
+          <div class="features-inline-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> UP Board Affiliated (6–12)</div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> IIT-JEE &amp; NEET Wing</div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> Primary to Secondary</div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> Experienced Faculty</div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> Smart Classrooms &amp; Labs</div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333;"><i
+                class="fas fa-check-circle" style="color:#A3332D;"></i> Regular PTMs &amp; Counselling</div>
+          </div>
+          <a href="index.html#branches" class="btn btn-red"
+            style="margin-top:24px; display:inline-flex; align-items:center; gap:8px;">
+            <i class="fas fa-arrow-right"></i> Explore Our Branches
+          </a>
+        </div>
+      </div>
+
+      <!-- Two Branches -->
+      <div data-reveal style="text-align:center; margin-bottom:48px;">
+        <span class="section-label">Our Campuses</span>
+        <h2 class="section-title">Two Branches, <span>One Mission</span></h2>
+        <div class="divider-line" style="margin:14px auto 0;"></div>
+      </div>
+      <div class="branches-inline-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+
+        <!-- UP Board Branch -->
+        <div data-reveal
+          style="background:linear-gradient(135deg,#A3332D,#7a2420); border-radius:20px; padding:36px 32px; color:#fff; box-shadow:0 12px 40px rgba(163,51,45,.25);">
+          <div style="font-size:36px; margin-bottom:14px;">📚</div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:22px; font-weight:900; margin-bottom:8px;">UP Board
+            Wing</h3>
+          <p style="font-size:14px; opacity:.85; line-height:1.7; margin-bottom:20px;">Quality education from Class 6 to
+            12 under UP Board affiliation, with a strong foundation in academics and character building.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+            <span
+              style="background:rgba(255,255,255,.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Classes
+              6–8</span>
+            <span
+              style="background:rgba(255,255,255,.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Classes
+              9–10</span>
+            <span
+              style="background:rgba(255,255,255,.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Classes
+              11–12</span>
+            <span
+              style="background:rgba(249,202,36,.3); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Science</span>
+          </div>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:10px;">
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-star"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Experienced UP Board teachers with
+                proven track record of excellent results.</span></li>
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-star"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Regular assessments, mock exams, and
+                parent-teacher meetings.</span></li>
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-star"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Well-equipped science labs, library, and
+                computer facilities.</span></li>
+          </ul>
+        </div>
+
+        <!-- IIT/NEET Branch -->
+        <div data-reveal
+          style="background:linear-gradient(135deg,#1a3a6b,#0d2240); border-radius:20px; padding:36px 32px; color:#fff; box-shadow:0 12px 40px rgba(26,58,107,.25);">
+          <div style="font-size:36px; margin-bottom:14px;">⚛️</div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:22px; font-weight:900; margin-bottom:8px;">IIT-JEE
+            / NEET Wing</h3>
+          <p style="font-size:14px; opacity:.85; line-height:1.7; margin-bottom:20px;">Premium School for India's most
+            competitive entrance exams, with classes from Primary to Secondary level also.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+            <span
+              style="background:rgba(255,255,255,.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Primary
+              Classes</span>
+            <span
+              style="background:rgba(255,255,255,.2); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">Secondary
+              Classes</span>
+            <span
+              style="background:rgba(249,202,36,.3); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">IIT-JEE</span>
+            <span
+              style="background:rgba(249,202,36,.3); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:700;">NEET</span>
+          </div>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:10px;">
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-atom"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Expert faculty from IITs and top medical
+                colleges for JEE &amp; NEET.</span></li>
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-atom"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Structured 2-year and crash course
+                programs for JEE Main, Advanced &amp; NEET.</span></li>
+            <li style="display:flex; gap:10px; font-size:13.5px; opacity:.9;"><i class="fas fa-atom"
+                style="color:#f9ca24; flex-shrink:0; margin-top:2px;"></i><span>Daily practice problems, weekly tests,
+                and All-India mock test series.</span></li>
+          </ul>
+        </div>
+
+      </div><!-- /branches grid -->
+    </div>
+  </section>
+
+  <!-- ⑤  STORY TIMELINE -->
+  <section class="timeline-section">
+    <div class="container">
+      <div data-reveal style="text-align:center;">
+        <span class="section-label">Our Journey</span>
+        <h2 class="section-title">The <span>Story</span> So Far</h2>
+        <div class="divider-line" style="margin:14px auto 0;"></div>
+        <p class="section-sub" style="margin:12px auto 0;">From humble beginnings to a premier multi-branch institution
+          — here is how Sri Sai Inter College has grown.</p>
+      </div>
+      <div class="timeline-wrap">
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2006 — Founding Year</span>
+            <h4>🏫 The Foundation Stone</h4>
+            <p>In 2006, with a deep belief that every child deserves quality education, Sri Sai Inter College opened its
+              doors in Lakhpedabagh, Barabanki. It began as a single wing, modest in size, but uncompromising in
+              purpose. Teach well, care deeply, and never give up on a student.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2011 — Landmark Moment</span>
+            <h4>🏆 Rank 1 in Uttar Pradesh</h4>
+            <p>Five years of dedication produced a historic result. Gyan Prakash Verma secured <strong>Rank 1 in the
+                entire UP Board examination</strong> — proof that a school in Barabanki could compete with anyone,
+              anywhere.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2021 — New Chapter</span>
+            <h4>⚛️ The IIT/NEET Premium Wing</h4>
+            <p>Fifteen years of trust earned, Sri Sai launched a dedicated IIT-JEE and NEET preparation wing at a brand
+              new campus — expert faculty, a structured program, and a dream that had grown bigger.</p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">2023 — Digital Era</span>
+            <h4>💻 A Modern Learning Experience</h4>
+            <p>Sri Sai introduced smart classrooms and digital learning tools across both branches, modernising the
+              experience while keeping the personal attention and mentoring that have always defined the institution.
+            </p>
+          </div>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-year">Today &amp; Beyond</span>
+            <h4>🚀 Growing Stronger Every Year</h4>
+            <p>Today, Sri Sai stands as a multi-branch institution with over 50 IIT/NEET selections, a growing family of
+              board toppers, and thousands of students whose lives have been shaped within these walls. The best
+              chapters are still being written.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ④  STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-header" data-reveal>
+        <span class="section-label">Success in Numbers</span>
+        <h2 class="section-title">Our <span>Achievements</span> Speak</h2>
+        <div class="divider-line"></div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card" data-reveal>
+          <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="stat-num" data-target="10000" data-suffix="+">0</div>
+          <div class="stat-label">Students Taught</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="stat-num" data-target="200" data-suffix="+">0</div>
+          <div class="stat-label">Expert Faculty</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="stat-num" data-target="100" data-suffix="+">0</div>
+          <div class="stat-label">Toppers Listed</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="stat-num" id="yearsExcellence" data-suffix="+">0</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤  VALUES GRID -->
+  <section class="values-section">
+    <div class="container">
+      <div data-reveal style="text-align:center;">
+        <span class="section-label">What We Stand For</span>
+        <h2 class="section-title">Our Core <span>Values</span></h2>
+        <div class="divider-line" style="margin:14px auto 0;"></div>
+        <p class="section-sub" style="margin:12px auto 0;">These principles are the backbone of everything we teach,
+          practise, and believe in at Sri Sai Inter College.</p>
+      </div>
+      <div class="values-grid">
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-star"></i></div>
+          <h4>Excellence</h4>
+          <p>We set high standards and push every student to discover and exceed their own limits, academically and
+            personally. At Sri Sai, ordinary effort is the starting point, not the ceiling.</p>
+        </div>
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-user-graduate"></i></div>
+          <h4>Mentorship</h4>
+          <p>Every teacher here is more than an instructor — they are a guide, a motivator, and sometimes, the person
+            who believes in a student before the student believes in themselves.</p>
+        </div>
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-heart"></i></div>
+          <h4>Compassion</h4>
+          <p>We foster a culture of empathy, where teachers care for students as individuals, not just roll numbers.
+            Every child's struggle is seen, and every child's progress is celebrated.</p>
+        </div>
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-balance-scale"></i></div>
+          <h4>Integrity</h4>
+          <p>Honesty, transparency, and ethical conduct are non-negotiable in the classroom, the exam hall, and beyond.
+            We believe character is built long before a result is declared.</p>
+        </div>
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Rootedness</h4>
+          <p>We are proud of where we come from. Our students carry the values of their families and communities as they
+            compete and win nationally.</p>
+        </div>
+        <div class="val-card" data-reveal>
+          <div class="val-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Discipline</h4>
+          <p>Structure, punctuality, and respect for process are not rules imposed from outside — they are habits built
+            from within, because consistency separates good students from great ones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥  CO-FOUNDERS -->
+  <section class="founders-section">
+    <div class="container">
+      <div data-reveal style="text-align:center;">
+        <span class="section-label">The People Behind It All</span>
+        <h2 class="section-title">Our <span>Co-Founders</span></h2>
+        <div class="divider-line" style="margin:14px auto 0;"></div>
+        <p class="section-sub" style="margin:12px auto 0;">Sri Sai Inter College was built on the vision, sacrifice, and
+          relentless dedication of two individuals who believed that quality education can transform lives.</p>
+      </div>
+      <div class="founders-grid">
+
+        <!-- Mr Surendra Verma -->
+        <div class="founder-card" data-reveal>
+          <div class="founder-img-frame">
+            <img src="img/Surendra Sir.jpeg" alt="Mr Surendra Verma">
+          </div>
+          <div class="founder-name">Mr Surendra Verma</div>
+          <div class="founder-role">Founder &amp; Director</div>
+          <div class="founder-divider"></div>
+          <blockquote>"A classroom should feel like a challenge and a comfort at the same time — that is where real
+            learning happens."</blockquote>
+          <p>With over 25 years of experience in education and an M.Sc., Mr Surendra Verma is the academic engine behind
+            Sri Sai Inter College. His passion for teaching is not something he carries into the classroom — it is
+            something students feel the moment he walks in. Today, he leads the IIT-JEE and NEET wing with the same
+            energy and conviction he brought to the very first batch in 2006. For him, every selection is personal.</p>
+          <div class="founder-quals">
+            <span>M.Sc.</span>
+            <span>25+ Years Experience</span>
+          </div>
+        </div>
+
+
+        <!-- Mr Navneet Tiwari -->
+        <div class="founder-card" data-reveal>
+          <div class="founder-img-frame">
+            <img src="img/Navneet sir 2.jpeg" alt="Mr Navneet Tiwari">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="founder-name">Mr Navneet Tiwari</div>
+          <div class="founder-role">Founder &amp; Director</div>
+          <div class="founder-divider"></div>
+          <blockquote>"Every student understands, you just have to find the right way to explain. I have never met a
+            child who cannot learn."</blockquote>
+          <p>Before Sri Sai Inter College, Mr Navneet Tiwari and Mr Surendra Verma ran NSD Classes, one of the most
+            respected coaching centres in the region. With an M.Sc. and 25+ years of teaching behind him, Mr Tiwari
+            built Sri Sai on one enduring truth: the students who need a teacher the most are rarely the ones at the top
+            of the class. His style is simple, detailed, and deeply patient — he breaks down every concept until every
+            student in the room has understood it, not just the brightest few.</p>
+          <div class="founder-quals">
+            <span>M.Sc.</span>
+            <span>25+ Years Experience</span>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/Logo.png" alt="SSIC Logo">
+          <h3>Sri Sai Inter College</h3>
+          <p>Two premier branches dedicated to shaping bright futures — from UP Board excellence to IIT-JEE &amp; NEET
+            success. Committed to excellence in education since establishment.</p>
+          <div style="margin-top:20px;display:flex;gap:10px">
+            <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=918874667588" class="social-btn social-wa"
+              style="width:36px;height:36px;font-size:15px"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Gallery</a></li>
+            <li><a href="up-toppers/toppers.html"><i class="fas fa-angle-right"></i> Toppers</a></li>
+            <li><a href="Faculty/team.html"><i class="fas fa-angle-right"></i> Faculty</a></li>
+            <li><a href="index.html#admission"><i class="fas fa-angle-right"></i> Admission</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Courses</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#branch-upboard"><i class="fas fa-angle-right"></i> Class 6 – 8</a></li>
+            <li><a href="index.html#branch-upboard"><i class="fas fa-angle-right"></i> Class 9 – 10 (UP Board)</a></li>
+            <li><a href="index.html#branch-upboard"><i class="fas fa-angle-right"></i> Class 11 – 12 (Science)</a></li>
+            <li><a href="index.html#branch-iit"><i class="fas fa-angle-right"></i> IIT-JEE Foundation</a></li>
+            <li><a href="index.html#branch-iit"><i class="fas fa-angle-right"></i> JEE Main &amp; Advanced</a></li>
+            <li><a href="index.html#branch-iit"><i class="fas fa-angle-right"></i> NEET (UG)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-info">
+            <div class="fci"><i class="fas fa-map-marker-alt"></i><span>UP Board Wing: Lakhpedabagh, Barabanki, Uttar
+                Pradesh 225001</span></div>
+            <div class="fci"><i class="fas fa-map-marker-alt"></i><span>IIT/NEET Wing: W57V+G5G, Near Shanti Palace
+                Barel, Canal Road, Barabanki 225001</span></div>
+            <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:8874667588">+91 88746 67588</a><br><a
+                  href="tel:9936816482">+91 99368 16482</a></span></div>
+            <div class="fci"><i class="fas fa-envelope"></i><span><a
+                  href="mailto:srisaiintercollegeedu@gmail.com">srisaiintercollegeedu@gmail.com</a></span></div>
+            <div class="fci"><i class="fas fa-clock"></i><span>Mon–Sat: 8AM – 4PM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 <span>Sri Sai Inter College</span>. All Rights Reserved. | Designed with ❤️ for Excellence in
+          Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" onerror="void(0)"></script>
+  <script>
+    // ── Scroll reveal ──────────────────────────────────────────
+    const revealStyle = document.createElement('style');
+    revealStyle.textContent = '[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}[data-reveal].revealed{opacity:1;transform:translateY(0)}';
+    document.head.appendChild(revealStyle);
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+    // ── Years of Excellence (auto-calculates from 2006) ────────
+    const yearsEl = document.getElementById('yearsExcellence');
+    if (yearsEl) { yearsEl.dataset.target = new Date().getFullYear() - 2006; }
+
+    // ── Animated counters ──────────────────────────────────────
+    const counters = document.querySelectorAll('.stat-num[data-target]');
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = Math.floor(current) + suffix;
+        }, 16);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => counterObs.observe(c));
+
+    // ── Mobile nav ─────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#navLinks a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (link.closest('.dropdown') && link.parentElement.classList.contains('dropdown')) return;
+          document.getElementById('navLinks').classList.remove('open');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
