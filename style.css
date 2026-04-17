@@ -2004,17 +2004,34 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .top-bar {
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
   .top-bar .container {
-    justify-content: center !important;
-    text-align: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0;
   }
 
   .top-bar .container > div {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-bottom: 2px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2px;
+    width: auto;
+  }
+
+  /* Hide second phone number & right nav links on mobile */
+  .tb-second,
+  .tb-right {
+    display: none !important;
+  }
+
+  .top-bar a {
+    margin: 0 6px;
+    white-space: nowrap;
   }
 
   section {

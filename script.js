@@ -71,9 +71,9 @@ const counterObserver = new IntersectionObserver((entries) => {
             const step = Math.ceil(target / 60);
             const timer = setInterval(() => {
                 count = Math.min(count + step, target);
-                e.target.textContent = count.toLocaleString() + (e.target.closest('.stat-item').querySelector('.stat-label').textContent.includes('%') ? '+' : '+');
+                e.target.textContent = count.toLocaleString() + (e.target.dataset.suffix || '+');
                 if (count >= target) {
-                    e.target.textContent = target.toLocaleString() + '+';
+                    e.target.textContent = target.toLocaleString() + (e.target.dataset.suffix || '+');
                     clearInterval(timer);
                 }
             }, 30);
