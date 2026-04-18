@@ -594,6 +594,7 @@
             </ul>
           </li>
           <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="index.html#admission">Admission</a></li>
           <li><a href="blog.html" class="active">Student Diaries</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -730,7 +731,7 @@
     // Show grid header once posts load
     const gridObs = new MutationObserver(() => {
       const grid = document.getElementById('posts-grid');
-      const hdr = document.getElementById('grid-header');
+      const hdr  = document.getElementById('grid-header');
       if (grid && grid.children.length > 0 && hdr) hdr.style.display = 'flex';
     });
     gridObs.observe(document.getElementById('posts-grid') || document.body, { childList: true });
@@ -745,5 +746,4 @@
     });
   </script>
 </body>
-
 </html>

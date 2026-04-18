@@ -108,6 +108,13 @@ header {
   z-index: 1000;
 }
 
+header .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 2.5cm;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -2040,6 +2047,33 @@ footer {
 
   .logo-text h1 {
     font-size: 17px;
+  }
+
+  /* Mobile header — taller with bigger logo */
+  header {
+    padding: 16px 0 !important;
+  }
+
+  header .container {
+    padding: 0 10px !important;
+  }
+
+  .logo-img {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .logo-text h1 {
+    font-size: 18px !important;
+  }
+
+  .logo-text p {
+    font-size: 9px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .logo-text .tagline {
+    font-size: 9px !important;
   }
 }
 

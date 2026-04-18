@@ -967,6 +967,7 @@
       top: 0 !important;
       z-index: 1000 !important;
     }
+    header .container { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 2.5cm !important; }
 
     .header-inner {
       display: flex !important;
@@ -1180,6 +1181,16 @@
         white-space: nowrap;
       }
     }
+  
+    @media (max-width: 600px) {
+      /* Mobile header — taller with bigger logo */
+      header { padding: 16px 0 !important; }
+      header .container { padding: 0 10px !important; }
+      .logo-img { width: 62px !important; height: 62px !important; }
+      .logo-text h1 { font-size: 18px !important; }
+      .logo-text p { font-size: 9px !important; letter-spacing: 0.5px !important; }
+      .logo-text .tagline { font-size: 9px !important; }
+    }
   </style>
 </head>
 
@@ -1234,6 +1245,7 @@
             </ul>
           </li>
           <li><a href="../Alumini/alumni.html" class="active">Notable Alumni</a></li>
+          <li><a href="../gallery.html">Gallery</a></li>
           <li><a href="../index.html#admission">Admission</a></li>
           <li><a href="../blog.html">Student Diaries</a></li>
           <li><a href="../contact.html">Contact Us</a></li>
