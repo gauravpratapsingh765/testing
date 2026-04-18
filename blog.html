@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Diaries | Sri Sai Inter College</title>
+  <link rel="icon" type="image/png" href="img/Logo.png">
+  <meta name="description"
+    content="Stories, insights and voices from the Sri Sai Inter College campus community — Student Diaries Blog." />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts — same trio as rest of site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Mulish:wght@300;400;500;600;700&family=Baloo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ── BLOG-PAGE SPECIFIC STYLES ──────────────────────────────────────── */
+
+    /* Page hero */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--red-dark) 0%, #7d1c0e 45%, var(--blue-accent) 100%);
+      padding: 72px 0 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .blog-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-hero .hero-label {
+      display: inline-block;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .25);
+      color: #ffd;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .blog-hero h1 span {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .blog-hero p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, .8);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── STICKY FILTER BAR ───────────────────────────────────────────────── */
+    .filter-bar {
+      background: #fff;
+      border-bottom: 1px solid #ebebeb;
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      transition: box-shadow .3s;
+    }
+
+    .filter-bar.stuck {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .10);
+    }
+
+    .filter-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filter-bar .container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      padding: 7px 20px;
+      border: 1.5px solid #e0e0e0;
+      background: transparent;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Mulish', sans-serif;
+      color: #555;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .25s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(192, 57, 43, .30);
+    }
+
+    /* ── MAIN BLOG AREA ──────────────────────────────────────────────────── */
+    .blog-main {
+      padding: 60px 0 80px;
+      background: #f7f4f4;
+    }
+
+    /* ── FEATURED HERO CARD ──────────────────────────────────────────────── */
+    .featured-card {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 52px;
+      box-shadow: 0 16px 60px rgba(0, 0, 0, .15);
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .featured-img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 6s ease;
+    }
+
+    .featured-card:hover .featured-img img {
+      transform: scale(1.06);
+    }
+
+    .featured-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, .92) 0%, rgba(10, 10, 10, .55) 50%, rgba(10, 10, 10, .15) 100%);
+    }
+
+    .featured-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px 44px;
+      width: 100%;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .featured-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      max-width: 720px;
+    }
+
+    .featured-excerpt {
+      font-size: 15px;
+      color: rgba(255, 255, 255, .8);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 22px;
+    }
+
+    .featured-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .featured-footer i {
+      margin-right: 5px;
+      color: var(--gold-light);
+    }
+
+    .read-btn {
+      color: var(--gold-light) !important;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(249, 202, 36, .4);
+      padding-bottom: 1px;
+      transition: border-color .2s;
+    }
+
+    .read-btn:hover {
+      border-color: var(--gold-light);
+    }
+
+    /* ── SECTION HEADER ─────────────────────────────────────────────────── */
+    .grid-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .grid-section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .grid-section-header h2 span {
+      color: var(--red);
+    }
+
+    /* ── BLOG CARD GRID ─────────────────────────────────────────────────── */
+    #posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* ── BLOG CARD ──────────────────────────────────────────────────────── */
+    .blog-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+      transition: transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .32s;
+      display: flex;
+      flex-direction: column;
+      /* Fade-in start state */
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .blog-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.22, 1, .36, 1),
+        box-shadow .32s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-7px) !important;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, .13);
+    }
+
+    .card-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+      display: block;
+    }
+
+    .blog-card:hover .card-img-wrap img {
+      transform: scale(1.07);
+    }
+
+    .card-body {
+      padding: 22px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cat-badge {
+      display: inline-block;
+      background: #A3332D;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .card-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-date i {
+      color: var(--gold);
+      font-size: 11px;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-card:hover .card-title {
+      color: var(--red);
+    }
+
+    .card-excerpt {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #999;
+      padding-top: 14px;
+      border-top: 1px solid #f0f0f0;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-footer i {
+      margin-right: 4px;
+      color: var(--gold);
+    }
+
+    .read-time {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* ── SKELETON LOADER ─────────────────────────────────────────────────── */
+    #loading-skeleton {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 52px;
+    }
+
+    .skeleton-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .skel {
+      background: linear-gradient(90deg, #ececec 25%, #f8f8f8 50%, #ececec 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 6px;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .skel-img {
+      height: 190px;
+      border-radius: 0;
+    }
+
+    .skel-body {
+      padding: 22px 24px;
+    }
+
+    .skel-badge {
+      height: 20px;
+      width: 80px;
+      margin-bottom: 14px;
+    }
+
+    .skel-title {
+      height: 20px;
+      width: 90%;
+      margin-bottom: 8px;
+    }
+
+    .skel-title.short {
+      width: 65%;
+      margin-bottom: 14px;
+    }
+
+    .skel-line {
+      height: 13px;
+      width: 100%;
+      margin-bottom: 7px;
+    }
+
+    .skel-line.short {
+      width: 70%;
+    }
+
+    /* ── ERROR / EMPTY STATES ────────────────────────────────────────────── */
+    .error-state,
+    #empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      grid-column: 1 / -1;
+    }
+
+    .error-state i,
+    #empty-state i {
+      font-size: 48px;
+      color: #ddd;
+      margin-bottom: 16px;
+    }
+
+    .error-state small {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+
+      #posts-grid,
+      #loading-skeleton {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-content {
+        padding: 28px 28px;
+      }
+
+      .featured-title {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      #posts-grid,
+      #loading-skeleton {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card {
+        min-height: 340px;
+      }
+
+      .featured-content {
+        padding: 22px 20px;
+      }
+
+      .blog-hero {
+        padding: 52px 0 44px;
+      }
+
+      .grid-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="blog">
+
+  <!-- ══════════ TOP BAR ══════════ -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:8874667588">+91 88746 67588</a>
+        <a href="tel:9936816482" class="tb-second">+91 99368 16482</a>
+        <a href="mailto:srisaiintercollegeedu@gmail.com"><i class="fas fa-envelope"></i>
+          srisaiintercollegeedu@gmail.com</a>
+      </div>
+      <div class="tb-right">
+        <a href="index.html#admission" class="tb-right-link"><i class="fas fa-user-plus"></i> Apply Now</a>
+        <a href="index.html#notices"><i class="fas fa-bell"></i> Notices</a>
+        <a href="contact.html"><i class="fas fa-map-marker-alt"></i> Location</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header id="top">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img class="logo-img" src="img/Logo.png" alt="Sri Sai Inter College Logo">
+        <div class="logo-text">
+          <h1>Sri Sai Inter College</h1>
+          <p>Committed to Excellence in Education</p>
+          <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="Faculty/team.html">Faculty <i class="fas fa-chevron-down" style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="Faculty/team.html"><i class="fas fa-user-shield"></i> Administration</a></li>
+              <li><a href="Faculty/team.html"><i class="fas fa-chalkboard-teacher"></i> UP Board Faculty</a></li>
+              <li><a href="Faculty/team.html"><i class="fas fa-graduation-cap"></i> IIT/NEET Faculty</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" style="cursor:default;">Toppers <i class="fas fa-chevron-down"
+                style="font-size:10px"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="up-toppers/toppers.html"><i class="fas fa-trophy"></i> UP Board Toppers</a></li>
+              <li><a href="Entrance-topper/entrance.html"><i class="fas fa-atom"></i> IIT-JEE / NEET Toppers</a></li>
+            </ul>
+          </li>
+          <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
+          <li><a href="index.html#admission">Admission</a></li>
+          <li><a href="blog.html" class="active">Student Diaries</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════ PAGE HERO ══════════ -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="hero-label">✦ Campus Blog</div>
+      <h1>Student <span>Diaries</span></h1>
+      <p>Stories, insights, and authentic voices straight from our campus community — written by students, for students.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ STICKY FILTER BAR ══════════ -->
+  <div class="filter-bar">
+    <div class="container">
+      <div id="filter-btns" style="display:flex; gap:6px; align-items:center;">
+        <!-- Populated dynamically from Sanity categories -->
+        <button class="filter-btn active" data-filter="all">All Posts</button>
+        <button class="filter-btn" data-filter="academics">Academics</button>
+        <button class="filter-btn" data-filter="student-life">Student Life</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="alumni">Alumni</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ MAIN BLOG CONTENT ══════════ -->
+  <main class="blog-main">
+    <div class="container">
+
+      <!-- Loading Skeleton -->
+      <div id="loading-skeleton"></div>
+
+      <!-- Featured Post -->
+      <div id="featured-wrap"></div>
+
+      <!-- Grid header -->
+      <div class="grid-section-header" id="grid-header" style="display:none;">
+        <h2>Latest <span>Stories</span></h2>
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-grid"></div>
+
+      <!-- Empty state -->
+      <div id="empty-state"
+        style="display:none; flex-direction:column; align-items:center; padding:60px 20px; text-align:center;">
+        <i class="fas fa-book-open" style="font-size:48px; color:#ddd; margin-bottom:16px;"></i>
+        <p style="color:#999; font-size:16px;">No posts found in this category.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/Logo.png" alt="Sri Sai Inter College">
+          <h3>Sri Sai Inter College</h3>
+          <p>Two premier branches dedicated to shaping bright futures — from UP Board excellence to IIT-JEE &amp; NEET
+            success. Committed to excellence in education since establishment.</p>
+          <div style="margin-top:20px; display:flex; gap:10px;">
+            <a href="https://www.facebook.com/ssicbbk/" class="social-btn social-fb"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=918874667588" class="social-btn social-wa"
+              style="width:36px;height:36px;font-size:15px"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/channel/UCuLTaJ0ACXHzSwBVmHsy6vQ" class="social-btn social-yt"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
+              style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+            <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Gallery</a></li>
+            <li><a href="up-toppers/toppers.html"><i class="fas fa-angle-right"></i> Toppers</a></li>
+            <li><a href="Faculty/team.html"><i class="fas fa-angle-right"></i> Faculty</a></li>
+            <li><a href="blog.html"><i class="fas fa-angle-right"></i> Student Diaries</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Blog Categories</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html"><i class="fas fa-angle-right"></i> All Posts</a></li>
+            <li><a href="blog.html?cat=academics"><i class="fas fa-angle-right"></i> Academics</a></li>
+            <li><a href="blog.html?cat=student-life"><i class="fas fa-angle-right"></i> Student Life</a></li>
+            <li><a href="blog.html?cat=events"><i class="fas fa-angle-right"></i> Events</a></li>
+            <li><a href="blog.html?cat=alumni"><i class="fas fa-angle-right"></i> Alumni Stories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-info">
+            <div class="fci"><i class="fas fa-map-marker-alt"></i><span>UP Board Wing: Lakhpedabagh, Barabanki, UP
+                225001</span></div>
+            <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:8874667588">+91 88746 67588</a></span>
+            </div>
+            <div class="fci"><i class="fas fa-envelope"></i><span><a
+                  href="mailto:srisaiintercollegeedu@gmail.com">srisaiintercollegeedu@gmail.com</a></span></div>
+            <div class="fci"><i class="fas fa-clock"></i><span>Mon–Sat: 8AM – 4PM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 <span>Sri Sai Inter College</span>. All Rights Reserved. | Student Diaries powered by Sanity.io</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- Shared nav JS -->
+  <script src="script.js"></script>
+  <!-- Blog logic -->
+  <script src="blog.js"></script>
+  <script>
+    // Show grid header once posts load
+    const gridObs = new MutationObserver(() => {
+      const grid = document.getElementById('posts-grid');
+      const hdr = document.getElementById('grid-header');
+      if (grid && grid.children.length > 0 && hdr) hdr.style.display = 'flex';
+    });
+    gridObs.observe(document.getElementById('posts-grid') || document.body, { childList: true });
+
+    // Activate filter from URL param on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const cat = new URLSearchParams(window.location.search).get('cat');
+      if (cat) {
+        const btn = document.querySelector(`.filter-btn[data-filter="${cat}"]`);
+        if (btn) setTimeout(() => btn.click(), 600);
+      }
+    });
+  </script>
+</body>
+
+</html>
