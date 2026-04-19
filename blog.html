@@ -69,7 +69,7 @@
 
     .blog-hero h1 span {
       color: var(--gold-light);
-      font-style: italic;
+      /* font-style: italic; */
     }
 
     .blog-hero p {
@@ -551,8 +551,8 @@
         <i class="fas fa-phone-alt"></i>
         <a href="tel:8874667588">+91 88746 67588</a>
         <a href="tel:9936816482" class="tb-second">+91 99368 16482</a>
-        <a href="mailto:srisaiintercollegeedu@gmail.com"><i class="fas fa-envelope"></i>
-          srisaiintercollegeedu@gmail.com</a>
+        <a href="mailto:ssic.nsd@gmail.com"><i class="fas fa-envelope"></i>
+          ssic.nsd@gmail.com</a>
       </div>
       <div class="tb-right">
         <a href="index.html#admission" class="tb-right-link"><i class="fas fa-user-plus"></i> Apply Now</a>
@@ -570,7 +570,7 @@
         <div class="logo-text">
           <h1>Sri Sai Inter College</h1>
           <p>Committed to Excellence in Education</p>
-          <span class="tagline">✦ Shaping Futures Since Establishment ✦</span>
+          <span class="tagline">✦ Shaping Futures Since 2006 ✦</span>
         </div>
       </div>
       <nav>
@@ -586,14 +586,16 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="javascript:void(0)" style="cursor:default;">Toppers <i class="fas fa-chevron-down"
+            <a href="javascript:void(0)" style="cursor:default;">Our Stars <i class="fas fa-chevron-down"
                 style="font-size:10px"></i></a>
             <ul class="dropdown-menu">
               <li><a href="up-toppers/toppers.html"><i class="fas fa-trophy"></i> UP Board Toppers</a></li>
               <li><a href="Entrance-topper/entrance.html"><i class="fas fa-atom"></i> IIT-JEE / NEET Toppers</a></li>
+
+              <li><a href="Alumini/alumni.html" target="_blank"><i class="fas fa-user-graduate"></i> Notable Alumni</a>
+              </li>
             </ul>
           </li>
-          <li><a href="Alumini/alumni.html">Notable Alumni</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="index.html#admission">Admission</a></li>
           <li><a href="blog.html" class="active">Student Diaries</a></li>
@@ -622,10 +624,10 @@
       <div id="filter-btns" style="display:flex; gap:6px; align-items:center;">
         <!-- Populated dynamically from Sanity categories -->
         <button class="filter-btn active" data-filter="all">All Posts</button>
-        <button class="filter-btn" data-filter="academics">Academics</button>
-        <button class="filter-btn" data-filter="student-life">Student Life</button>
-        <button class="filter-btn" data-filter="events">Events</button>
-        <button class="filter-btn" data-filter="alumni">Alumni</button>
+        <!-- <button class="filter-btn" data-filter="academics">Academics</button> -->
+        <!-- <button class="filter-btn" data-filter="student-life">Student Life</button> -->
+        <!-- <button class="filter-btn" data-filter="events">Events</button> -->
+        <!-- <button class="filter-btn" data-filter="alumni">Alumni</button> -->
       </div>
     </div>
   </div>
@@ -677,6 +679,16 @@
             <a href="https://www.instagram.com/srisaiintercollege/" class="social-btn social-ig"
               style="width:36px;height:36px;font-size:15px" target="_blank"><i class="fab fa-instagram"></i></a>
           </div>
+          <div style="margin-top:28px; margin-bottom:14px; font-size:px; color:#aaa;">
+            Developed by &mdash;
+            <a href="https://www.linkedin.com/in/gaurav-pratap-singh-515072190/" target="_blank"
+              rel="noopener noreferrer"
+              style="color:#f39c12;font-weight:500;text-decoration:none;transition:color 0.2s;"
+              onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#f39c12'">
+              Gaurav Pratap Singh
+            </a>
+            <span style="font: size 12px; font-weight: 600; letter-spacing:1px;">(IIT Madras)</span>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -708,7 +720,7 @@
             <div class="fci"><i class="fas fa-phone-alt"></i><span><a href="tel:8874667588">+91 88746 67588</a></span>
             </div>
             <div class="fci"><i class="fas fa-envelope"></i><span><a
-                  href="mailto:srisaiintercollegeedu@gmail.com">srisaiintercollegeedu@gmail.com</a></span></div>
+                  href="mailto:ssic.nsd@gmail.com">ssic.nsd@gmail.com</a></span></div>
             <div class="fci"><i class="fas fa-clock"></i><span>Mon–Sat: 8AM – 4PM</span></div>
           </div>
         </div>
@@ -731,7 +743,7 @@
     // Show grid header once posts load
     const gridObs = new MutationObserver(() => {
       const grid = document.getElementById('posts-grid');
-      const hdr  = document.getElementById('grid-header');
+      const hdr = document.getElementById('grid-header');
       if (grid && grid.children.length > 0 && hdr) hdr.style.display = 'flex';
     });
     gridObs.observe(document.getElementById('posts-grid') || document.body, { childList: true });
@@ -746,4 +758,5 @@
     });
   </script>
 </body>
+
 </html>
