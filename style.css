@@ -179,13 +179,14 @@ nav {
 
 .nav-links a {
   display: block;
-  padding: 10px 14px;
+  padding: 8px 10px;
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 8px;
   transition: all 0.25s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -1879,6 +1880,13 @@ footer {
 }
 
 /* ===== MOBILE NAV ===== */
+/* ── Medium laptops (MacBook Air 13", etc.) ── */
+@media (max-width: 1400px) {
+  header .container {
+    padding: 0 1cm;
+  }
+}
+
 @media (max-width: 900px) {
   .hamburger {
     display: flex;
