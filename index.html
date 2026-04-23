@@ -104,6 +104,103 @@
     </div>
   </header>
 
+  <!-- UP BOARD RESULT CAROUSEL -->
+  <section id="result-carousel" style="position:relative; width:100%; overflow:hidden; line-height:0; padding:0 !important; margin:0;">
+
+    <style>
+      #rc-track { display:flex; transition:transform 0.6s ease; }
+      .rc-slide { min-width:100%; }
+      .rc-slide img { width:100%; height:420px; object-fit:cover; display:block; }
+      @media(max-width:600px){ .rc-slide img{ height:220px; } }
+      .rc-arrow {
+        position:absolute; top:50%; transform:translateY(-50%);
+        background:rgba(0,0,0,0.4); color:#fff; border:none;
+        width:40px; height:40px; border-radius:50%;
+        font-size:16px; cursor:pointer; z-index:10;
+      }
+      .rc-prev { left:12px; } .rc-next { right:12px; }
+      .rc-dots { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:7px; z-index:10; }
+      .rc-dot { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; border:none; }
+      .rc-dot.active { background:#fff; }
+    </style>
+
+    <div style="
+        line-height: normal;
+        font-size: 16px;
+        text-align: center;
+        padding: 22px 24px 18px;
+        background: linear-gradient(135deg, #A3332D 0%, #7a2420 100%);
+        position: relative;
+        overflow: hidden;
+      ">
+      <!-- decorative circles -->
+      <span style="position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.06);top:-40px;left:-30px;"></span>
+      <span style="position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.06);bottom:-20px;right:60px;"></span>
+
+      <p style="
+          margin: 0;
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(20px, 3.5vw, 32px);
+          font-weight: 900;
+          color: #fff;
+          letter-spacing: 0.5px;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        ">
+        🎉 &nbsp;UP Board Result 2025–26 is Out!
+      </p>
+      <p style="
+          margin: 8px 0 0;
+          font-family: 'Mulish', sans-serif;
+          font-size: clamp(13px, 1.8vw, 16px);
+          color: rgba(255,255,255,0.88);
+          font-weight: 600;
+          letter-spacing: 0.3px;
+        ">
+        🏆 &nbsp;Congratulations to all our students — here are our proud toppers!
+      </p>
+    </div>
+
+    <!-- Image track wrapped in its own relative container so dots/arrows stay inside -->
+    <div style="position:relative; line-height:0; overflow:hidden;">
+      <div id="rc-track">
+        <div class="rc-slide"><img src="img/topper banner.jpeg" alt="Slide 1"></div>
+        <div class="rc-slide"><img src="img/Topper celeb.jpeg" alt="Slide 2"></div>
+        <div class="rc-slide"><img src="img/UP-Board Faculty.jpeg" alt="Slide 3"></div>
+        <div class="rc-slide"><img src="img/main3.1.jpeg" alt="Slide 4"></div>
+      </div>
+
+      <button class="rc-arrow rc-prev" onclick="rc(-1)">&#8249;</button>
+      <button class="rc-arrow rc-next" onclick="rc(1)">&#8250;</button>
+
+      <div class="rc-dots">
+        <button class="rc-dot active" onclick="rcGo(0)"></button>
+        <button class="rc-dot" onclick="rcGo(1)"></button>
+        <button class="rc-dot" onclick="rcGo(2)"></button>
+        <button class="rc-dot" onclick="rcGo(3)"></button>
+      </div>
+    </div>
+
+    <div style="line-height:normal; font-size:14px; text-align:center; padding:10px 20px 14px; background:#fff3f3;">
+      <a href="up-toppers/toppers.html" target="_blank" style="font-family:'Mulish',sans-serif; font-size:14px; font-weight:700; color:#A3332D; text-decoration:none; letter-spacing:0.3px;">
+        🏆 View All Toppers &rarr;
+      </a>
+    </div>
+
+    <script>
+      (function(){
+        var cur=0, total=4;
+        var track=document.getElementById('rc-track');
+        var dots=document.querySelectorAll('.rc-dot');
+        function go(n){ cur=(n+total)%total; track.style.transform='translateX(-'+cur*100+'%)'; dots.forEach(function(d,i){d.classList.toggle('active',i===cur);}); }
+        window.rc=function(d){go(cur+d);};
+        window.rcGo=go;
+        setInterval(function(){go(cur+1);},4000);
+      })();
+    </script>
+
+  </section>
+  <!-- END RESULT CAROUSEL -->
+
 
   <!-- HERO -->
 
